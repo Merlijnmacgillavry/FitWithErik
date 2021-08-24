@@ -1,16 +1,16 @@
 <template>
   <div class="content">
-    <div class="navbar"></div>
+    <Navbar />
     <Home />
   </div>
 </template>
 
 <script>
 import Home from "./components/home.vue";
-
+import Navbar from "./components/Navbar.vue";
 export default {
   name: "App",
-  components: { Home },
+  components: { Home, Navbar },
 };
 </script>
 
@@ -19,5 +19,8 @@ export default {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+body {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9));
 }
 </style>
