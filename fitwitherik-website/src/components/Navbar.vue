@@ -7,14 +7,22 @@
     <nav class="nav" ref="nav">
       <ul class="menu-nav" ref="menuNav">
         <li class="menu-nav__item">
-          <h1 class="menu-nav__link">FIT WITH ERIK COACHING</h1>
+          <span v-on:click="toggleMenu">
+            <router-link v-on:click="toggleMenu" to="/" class="menu-nav__link"
+              >FIT WITH ERIK COACHING</router-link
+            >
+          </span>
         </li>
         <li
           class="menu-nav__item"
-          v-for="({ name }, index) in links"
+          v-for="({ name, path }, index) in links"
           :key="index"
         >
-          <a href="#!" class="menu-nav__link active">{{ name }}</a>
+          <span v-on:click="toggleMenu"
+            ><router-link :to="{ path: path }" class="menu-nav__link">{{
+              name
+            }}</router-link></span
+          >
         </li>
       </ul>
     </nav>
@@ -30,41 +38,51 @@ export default {
       links: [
         {
           name: "Online Coaching",
+          path: "/online_coaching",
         },
         {
           name: "Custom Plans",
+          path: "/custom_plans",
         },
         {
           name: "Recipes",
+          path: "/recipes",
         },
         {
           name: "About me",
+          path: "/about",
         },
         {
           name: "Contact",
+          path: "/contact",
         },
       ],
     };
   },
   methods: {
-    changeActive: function () {},
+    navigate: function (path) {
+      this.toggleMenu;
+      this.router.navigate([path]);
+    },
     toggleMenu: function () {
-      let hamburger = this.$refs.hamburger;
-      let nav = this.$refs.nav;
-      let navItems = this.$el.querySelectorAll(".menu-nav__item");
-      let menuNav = this.$refs.menuNav;
-      if (!this.showMenu) {
-        hamburger.classList.add("open");
-        nav.classList.add("open");
-        menuNav.classList.add("open");
-        navItems.forEach((item) => item.classList.add("open"));
-      } else {
-        hamburger.classList.remove("open");
-        nav.classList.remove("open");
-        menuNav.classList.remove("open");
-        navItems.forEach((item) => item.classList.remove("open"));
+      if (window.innerWidth < 768) {
+        let hamburger = this.$refs.hamburger;
+        let nav = this.$refs.nav;
+        let navItems = this.$el.querySelectorAll(".menu-nav__item");
+        let menuNav = this.$refs.menuNav;
+        if (!this.showMenu) {
+          hamburger.classList.add("open");
+          nav.classList.add("open");
+          menuNav.classList.add("open");
+          navItems.forEach((item) => item.classList.add("open"));
+        } else {
+          hamburger.classList.remove("open");
+          nav.classList.remove("open");
+          menuNav.classList.remove("open");
+          navItems.forEach((item) => item.classList.remove("open"));
+        }
+        this.showMenu = !this.showMenu;
       }
-      this.showMenu = !this.showMenu;
     },
   },
   mounted: function () {},
@@ -142,6 +160,7 @@ export default {
     height: 100vh;
     overflow: hidden;
     background: $background-color;
+    opacity: 0.85;
     list-style-type: none;
     padding-right: 1rem;
     transform: translateY(-100%);
@@ -180,7 +199,7 @@ export default {
 
   // Automate with vue
 
-  @for $i from 1 through 8 {
+  @for $i from 1 through 6 {
     .menu-nav__item:nth-child(#{$i}) {
       transition-delay: ($i * 0.1s) + 0.15s;
     }
@@ -203,11 +222,11 @@ export default {
         display: inline;
         padding-right: 1.5rem;
       }
-      &__item:first-child h1 {
+      &__item:first-child a {
         position: absolute;
         left: 0;
         padding: 2rem;
-        border: none;
+        // border: none;
       }
 
       &__link {
@@ -225,7 +244,7 @@ export default {
 @include media-lg {
   .nav {
     .menu-nav {
-      text-align: center;
+      text-align: right;
     }
   }
 }

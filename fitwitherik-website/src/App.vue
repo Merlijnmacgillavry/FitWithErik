@@ -1,16 +1,17 @@
 <template>
   <div class="content">
     <Navbar />
-    <Home />
+    <transition name="fade">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
 <script>
-import Home from "./components/home.vue";
 import Navbar from "./components/Navbar.vue";
 export default {
   name: "App",
-  components: { Home, Navbar },
+  components: { Navbar },
 };
 </script>
 
