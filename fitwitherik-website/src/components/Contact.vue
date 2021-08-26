@@ -1,19 +1,5 @@
 <template>
-  <div>
     <div>CONTACT</div>
-    <div>CONTACT</div>
-    <div>CONTACT</div>
-    <div>CONTACT</div>
-    <div>CONTACT</div>
-    <div>CONTACT</div>
-    <div>CONTACT</div>
-    <div>CONTACT</div>
-    <div>CONTACT</div>
-    <div>CONTACT</div>
-    <div>CONTACT</div>
-    <div>CONTACT</div>
-    <div>CONTACT</div>
-  </div>
 </template>
 
 <script>
