@@ -14,7 +14,7 @@
           v-for="({ name }, index) in links"
           :key="index"
         >
-          <a href="#!" class="menu-nav__link">{{ name }}</a>
+          <a href="#!" class="menu-nav__link active">{{ name }}</a>
         </li>
       </ul>
     </nav>
@@ -28,9 +28,6 @@ export default {
     return {
       showMenu: false,
       links: [
-        {
-          name: "Home",
-        },
         {
           name: "Online Coaching",
         },
@@ -50,6 +47,7 @@ export default {
     };
   },
   methods: {
+    changeActive: function () {},
     toggleMenu: function () {
       let hamburger = this.$refs.hamburger;
       let nav = this.$refs.nav;
@@ -172,7 +170,7 @@ export default {
       @include transition-ease;
 
       &:hover {
-        color: white;
+        color: $primary-hover-color;
       }
     }
     h1 {
@@ -199,17 +197,35 @@ export default {
       transform: translateY(0);
       height: 100%;
       background: gradient(to-right, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.85));
-      text-align: center;
-      h1 {
-        display: none;
-      }
+      text-align: right;
+
       &__item {
         display: inline;
         padding-right: 1.5rem;
       }
+      &__item:first-child h1 {
+        position: absolute;
+        left: 0;
+        padding: 2rem;
+        border: none;
+      }
+
       &__link {
         font-size: 1.5rem;
       }
+      .active {
+        border-bottom: 2px solid $primary-color;
+      }
+      :hover {
+        border-color: $primary-hover-color;
+      }
+    }
+  }
+}
+@include media-lg {
+  .nav {
+    .menu-nav {
+      text-align: center;
     }
   }
 }

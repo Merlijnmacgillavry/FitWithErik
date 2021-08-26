@@ -1,5 +1,6 @@
 $primary-color: #ff652f;
 $secondary-color: #2EC7FF;
+$primary-hover-color: #fff;
 $background-color: #272727;
 
 
@@ -8,7 +9,7 @@ $background-color: #272727;
 
 
 a {
-  color: $secondary-color;
+  color: $primary-color;
   text-decoration: none;
 }
 

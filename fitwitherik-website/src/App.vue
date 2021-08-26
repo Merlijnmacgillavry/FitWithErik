@@ -30,12 +30,12 @@ export default {
 body {
   font-family: "Big Shoulders Text";
   background: lighten($background-color, $amount: 10);
-  color: $secondary-color;
+  color: $primary-color;
 }
 h1 {
   max-width: 80rem;
   font-size: 3rem;
-  border-bottom: 4px solid $secondary-color;
+  border-bottom: 4px solid $primary-color;
   font-family: "Big Shoulders Text", bold 700;
   cursor: pointer;
 }
