@@ -60,10 +60,6 @@ export default {
     };
   },
   methods: {
-    navigate: function (path) {
-      this.toggleMenu;
-      this.router.navigate([path]);
-    },
     toggleMenu: function () {
       if (window.innerWidth < 768) {
         let hamburger = this.$refs.hamburger;
@@ -100,7 +96,7 @@ export default {
   width: 28px;
   cursor: pointer;
   @include transition-ease;
-
+  
   &__burger {
     position: absolute;
     right: 0;
