@@ -96,7 +96,7 @@ export default {
   width: 28px;
   cursor: pointer;
   @include transition-ease;
-  
+
   &__burger {
     position: absolute;
     right: 0;
@@ -156,7 +156,7 @@ export default {
     height: 100vh;
     overflow: hidden;
     background: $background-color;
-    opacity: 0.85;
+    opacity: 0.95;
     list-style-type: none;
     padding-right: 1rem;
     transform: translateY(-100%);
@@ -222,7 +222,6 @@ export default {
         position: absolute;
         left: 0;
         padding: 2rem;
-        // border: none;
       }
 
       &__link {
