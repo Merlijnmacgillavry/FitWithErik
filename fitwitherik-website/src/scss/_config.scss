@@ -1,6 +1,6 @@
 @import './transitions';
 @import './mixins.scss';
-
+@import './responsive';
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@100;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
@@ -67,21 +67,3 @@ a {
 
 
 
-
-@mixin media-md {
-  @media screen and (min-width: 768px) {
-    @content;
-  }
-}
-  
-@mixin media-lg {
-  @media screen and (min-width: 1024px) {
-    @content;
-   }
-}
-  
-  @mixin media-xl {
-    @media screen and (min-width: 1600px) {
-      @content;
-    }
-  }
