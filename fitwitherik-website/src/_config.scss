@@ -1,5 +1,11 @@
+@import './transitions';
+@import './mixins.scss';
+
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@100;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+
+//Variables
 
 $primary-color: #FF5F1F;
 $primary-color-25: #ff5f1f31;
@@ -10,6 +16,8 @@ $green: #31CC37;
 $red: #ff0000;
 $primary-hover-color: #fff;
 $background-color: #272727;
+
+//Base config
 
 * {
   box-sizing: border-box;
@@ -24,27 +32,13 @@ body {
 }
 
 
-
-@mixin transition-ease {
-  transition: all 0.5s ease-in-out;
-}
-
-
-
+//General scss styles
 
 a {
   color: $primary-color;
   text-decoration: none;
 }
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-  transition-duration: 0.3s;
-  transition-timing-function: ease;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
-  opacity: 0
-}
 
 .btn{
   margin: 2.5em auto;
@@ -73,9 +67,7 @@ a {
 
 
 
-@mixin transition-ease {
-    transition: all 0.5s ease-in-out;
-  }
+
 @mixin media-md {
   @media screen and (min-width: 768px) {
     @content;
