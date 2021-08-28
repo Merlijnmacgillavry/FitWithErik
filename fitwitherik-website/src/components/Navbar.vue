@@ -86,7 +86,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../_config.scss";
+@import "../scss/_config.scss";
 .menu-btn {
   position: absolute;
   z-index: 1;

@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../_config.scss";
+@import "../scss/_config.scss";
 
 .home {
   background: linear-gradient(
