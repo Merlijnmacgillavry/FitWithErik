@@ -24,12 +24,12 @@
           <img src="../assets/about_1.png" alt="" />
         </div>
       </div>
-      <div class="about__1__starts-here">
+      <div class="about__1__starts-here" v-on:click="scrollDown">
         <p>And my journey starts here...</p>
         <i class="fa fa-angle-down"></i>
       </div>
     </section>
-    <section class="about__2">
+    <section class="about__2" ref="about__2">
       <div class="about__section reverse">
         <div class="text">
           At 17 years old, I grew to be 201 cm (6’7ft) tall but weighed only 75
@@ -88,6 +88,13 @@
 <script>
 export default {
   name: "About_Me",
+  methods: {
+    scrollDown: function () {
+      let about__2 = this.$refs.about__2;
+      const y = about__2.getBoundingClientRect().top;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    },
+  },
 };
 </script>
 
@@ -147,7 +154,6 @@ export default {
     background-color: rgba(black, 0.75);
     @include section-style;
     padding-top: 5%;
-    padding-bottom: 5%;
     &__title {
       @include section-title;
     }
@@ -157,13 +163,13 @@ export default {
       margin: 0 auto;
       max-width: 100%;
       margin-top: 2em;
-      padding-bottom: 56.25%;
+      padding-bottom: 40%;
       iframe {
         position: absolute;
         top: 0;
-        left: 5%;
-        width: 90%;
-        height: 100%;
+        left: 20%;
+        width: 60%;
+        height: 90%;
       }
     }
   }
