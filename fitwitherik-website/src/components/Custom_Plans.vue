@@ -1,5 +1,5 @@
 <template>
-  <div>Custom</div>
+  <div>Custom plans</div>
 </template>
 
 <script>
