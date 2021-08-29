@@ -123,11 +123,9 @@ export default {
   background-attachment: fixed;
   .coaching__1 {
     background-color: rgba(black, 0.75);
-    min-height: 100vh;
-    color: $secondary-color;
-    padding: 25% 5% 0% 5%;
+    @include section-style;
     &__title {
-      font-size: 3rem;
+      @include section-title;
     }
     &__tagline {
       font-size: 1.2rem;
@@ -153,11 +151,9 @@ export default {
     }
   }
   .coaching__2 {
-    min-height: 100vh;
-    color: $secondary-color;
-    padding: 25% 5% 0% 5%;
+    @include section-style;
     &__title {
-      font-size: 3rem;
+      @include section-title;
     }
     &__cards {
       margin: 2em 0px;

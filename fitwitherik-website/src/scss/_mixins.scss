@@ -1,3 +1,11 @@
+@mixin section-style{
+   min-height: 100vh;
+    color: $secondary-color;
+    padding: 25% 5% 0% 5%;
+}
+@mixin section-title{
+  font-size: 3rem;
+}
 @mixin transition-ease {
     transition: all 0.5s ease-in-out;
 }
