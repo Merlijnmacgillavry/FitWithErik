@@ -88,7 +88,7 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/_config.scss";
 .menu-btn {
-  position: absolute;
+  position: fixed;
   z-index: 1;
   right: 1rem;
   top: 1rem;
@@ -144,7 +144,7 @@ export default {
   width: 100vw;
   opacity: 0.98;
   visibility: hidden;
-
+  z-index: 1;
   &.open {
     visibility: visible;
   }
