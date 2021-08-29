@@ -1,10 +1,18 @@
 @mixin section-style{
    min-height: 100vh;
     color: $secondary-color;
-    padding: 25% 5% 0% 5%;
+    padding: 20% 5% 0% 5%;
 }
 @mixin section-title{
   font-size: 3rem;
+}
+@mixin unselectable{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 @mixin transition-ease {
     transition: all 0.5s ease-in-out;

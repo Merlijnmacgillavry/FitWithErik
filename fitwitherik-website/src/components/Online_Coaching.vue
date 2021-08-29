@@ -143,6 +143,7 @@ export default {
       }
     }
     &__find-out {
+      @include unselectable;
       font-size: 1.2rem;
       cursor: pointer;
       &:hover {
