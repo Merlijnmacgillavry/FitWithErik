@@ -166,7 +166,7 @@ export default {
         background: rgba(255, 255, 255, 0.2);
         border: 3px solid $primary-color;
         border-radius: 4px;
-        padding: 2em 0px;
+        padding: 2em 1em;
         &:hover {
           @include grow;
           cursor: pointer;
@@ -218,7 +218,8 @@ export default {
       }
     }
     .coaching__2 {
-      padding-top: 12.5%;
+      min-height: 0;
+      padding-top: 6.75%;
       &__title {
         font-size: 6rem;
       }

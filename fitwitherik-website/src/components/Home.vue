@@ -31,8 +31,7 @@ export default {
     url("../assets/home.jpeg");
   min-height: 100vh;
   background-size: cover;
-  background-position: center top;
-
+  background-position: center 50%;
   .home__content {
     padding: 40% 5% 0 5%;
     font-family: "Bebas Neue";

@@ -226,7 +226,7 @@ export default {
       }
 
       &__link {
-        font-size: 1.5rem;
+        font-size: 1rem;
       }
       .active {
         border-bottom: 2px solid $primary-color;
@@ -240,7 +240,10 @@ export default {
 @include media-lg {
   .nav {
     .menu-nav {
-      text-align: right;
+      text-align: center;
+      &__link {
+        font-size: 1.5rem;
+      }
     }
   }
 }

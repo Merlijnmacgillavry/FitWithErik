@@ -188,7 +188,11 @@ export default {
         font-size: 6rem;
       }
     }
-
+    .about__3 {
+      .video {
+        margin-top: 10%;
+      }
+    }
     .about__section {
       flex-direction: row;
       align-items: center;
