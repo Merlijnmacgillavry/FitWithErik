@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter)
 
 const routes = [
+
     {
         path: "/",
         name: "Home",
@@ -32,6 +33,11 @@ const routes = [
         path: "/contact",
         name: "Contact",
         component: () => import('./components/Contact.vue')
+    },
+    {
+        path: "/*",
+        name: "404",
+        component: () => import('./components/404.vue')
     },
 
 ]
