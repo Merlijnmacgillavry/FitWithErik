@@ -48,6 +48,8 @@ export default {
       text-transform: uppercase;
     }
     &__btn {
+      margin: 2.5em auto;
+
       text-align: center;
     }
   }

@@ -9,3 +9,17 @@
   .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
     opacity: 0
   }
+
+  .flip-enter-active {
+    transition: all 0.4s ease;
+  }
+  
+  .flip-leave-active {
+    display: none;
+  }
+  
+  .flip-enter, .flip-leave {
+    transform: rotateY(180deg);
+    opacity: 0;
+  
+  }
