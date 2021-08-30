@@ -72,7 +72,7 @@ export default {
     color: white;
     right: 90%;
     width: 100%;
-    font-size: 2em;
+    font-size: 1em;
     top: 10%;
   }
   img {
@@ -85,7 +85,7 @@ export default {
       padding-top: 12.5%;
       &__title {
         h2 {
-          margin-left: 1em;
+          margin-left: 1.2em;
         }
       }
     }
