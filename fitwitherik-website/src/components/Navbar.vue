@@ -89,7 +89,7 @@ export default {
 @import "../scss/_config.scss";
 .menu-btn {
   position: fixed;
-  z-index: 1;
+  z-index: 3;
   right: 1rem;
   top: 1rem;
   height: 20px;
@@ -99,6 +99,7 @@ export default {
 
   &__burger {
     position: absolute;
+    z-index: 1;
     right: 0;
     top: 0.5rem;
     width: 28px;
