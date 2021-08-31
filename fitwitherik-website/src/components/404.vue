@@ -47,6 +47,9 @@ export default {
     background-color: rgba(black, 0.75);
     @include section-style;
     padding-top: 10%;
+    .btn {
+      margin: 1.5em auto;
+    }
     &__title {
       color: $primary-color;
       h1 {

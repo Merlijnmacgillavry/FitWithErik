@@ -195,6 +195,9 @@ export default {
       }
     }
   }
+  .btn {
+    margin: 2.5em auto;
+  }
 }
 
 @include media-md {

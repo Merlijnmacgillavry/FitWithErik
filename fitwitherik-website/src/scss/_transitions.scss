@@ -1,6 +1,4 @@
 
-
-
 .fade-enter-active, .fade-leave-active {
     transition: opacity .5s;
     transition-duration: 0.3s;
@@ -9,3 +7,21 @@
   .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
     opacity: 0
   }
+
+.flip-leave-to {
+  transform: rotateY(180deg);
+  opacity: 0;
+}
+.flip-enter{
+  transform: rotateY(180deg);
+  opacity: 0;
+}
+.flip-enter-to{
+  transform: rotateY(360deg)
+}
+
+.flip-enter-active  {
+  transition: transform 1s, opacity 0.5s;
+  transition-timing-function: ease;
+  transform-style: preserve-3d;
+}
