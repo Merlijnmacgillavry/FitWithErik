@@ -204,9 +204,9 @@ export default {
   .coaching {
     background-position: center top;
     .coaching__1 {
-      padding-top: 12.5%;
+      @include title-md-pd;
       &__title {
-        font-size: 6rem;
+        font-size: $title-md;
       }
       &__tagline {
         font-size: 1.6rem;
@@ -224,7 +224,7 @@ export default {
       min-height: 0;
       padding-top: 6.75%;
       &__title {
-        font-size: 6rem;
+        font-size: $title-md;
       }
       &__cards {
         flex-direction: row;
