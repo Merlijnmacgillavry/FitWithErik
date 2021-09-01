@@ -3,7 +3,7 @@
     <section class="error__1">
       <div class="error__1__title">
         <h1>404</h1>
-        <h2>PAGE NOT FOUND</h2>
+        <h2>GAINS NOT FOUND</h2>
       </div>
       <button class="btn" v-on:click="returnHome">Go Back to the Site</button>
     </section>
@@ -67,16 +67,16 @@ export default {
 }
 .amigo {
   position: absolute;
-  bottom: 0;
+  bottom: -5%;
   right: 0%;
   height: 50%;
   &__text {
     position: absolute;
     color: white;
-    right: 90%;
+    right: 80%;
     width: 100%;
     font-size: 1em;
-    top: 10%;
+    top: 20%;
   }
   img {
     height: 100%;
