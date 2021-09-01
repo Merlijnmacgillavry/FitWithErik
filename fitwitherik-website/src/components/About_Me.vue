@@ -183,9 +183,9 @@ export default {
 @include media-md {
   .about {
     .about__1 {
-      padding-top: 12.5%;
+      @include title-md-pd;
       &__title {
-        font-size: 6rem;
+        font-size: $title-md;
       }
     }
     .about__3 {

@@ -102,6 +102,7 @@ export default {
       border-radius: 4px;
       height: 600px;
       width: 400px;
+      max-width: 100%;
       margin: 2em auto;
       display: flex;
       flex-direction: column;
@@ -149,9 +150,13 @@ export default {
 }
 @include media-md {
   .custom-plans {
+    @include title-md-pd;
     &__card-container {
       flex-direction: row;
       justify-content: space-between;
+    }
+    &__title {
+      font-size: $title-md;
     }
   }
 }

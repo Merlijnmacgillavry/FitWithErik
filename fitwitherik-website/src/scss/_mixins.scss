@@ -1,58 +1,16 @@
-@mixin section-style{
-   min-height: 100vh;
-    color: $secondary-color;
-    padding: 15% 5% 0% 5%;
+@mixin section-style {
+  min-height: 100vh;
+  color: $secondary-color;
+  padding: 15% 5% 0% 5%;
 }
-@mixin section-title{
+@mixin section-title {
   font-size: 3rem;
 }
-@mixin unselectable{
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+@mixin unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
-@mixin transition-ease {
-    transition: all 0.5s ease-in-out;
-}
-@mixin bounce{
-    animation: bounce 1s ease infinite;
-      animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
-}
-@mixin grow{
-  animation: grow 1s forwards ease;
-  animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
-}
-@keyframes grow {
-  0% {
-    transform: scale(1,1);
-  }
-  100%{
-    transform: scale(1.05,1.05);
-  }
-}
-@keyframes bounce {
-    0% {
-      transform: scale(1, 1) translate(0px, 0px);
-    }
-    10% {
-      transform: scale(1.1, 0.9) translate(0px, 0px);
-    }
-    30% {
-      transform: scale(0.9, 1.1) translate(0px, -20px);
-    }
-    50% {
-      transform: scale(1.05, 0.95) translate(0px, 0px);
-    }
-    57% {
-      transform: scale(1, 1) translate(0px, -4px);
-    }
-    64% {
-      transform: scale(1, 1) translate(0px, 0px);
-    }
-    100% {
-      transform: scale(1, 1) translate(0px, 0px);
-    }
-  }
