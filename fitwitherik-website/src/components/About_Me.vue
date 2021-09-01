@@ -101,17 +101,9 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/config.scss";
 .about {
-  background: linear-gradient(
-      to bottom right,
-      rgba($background-color, 0.6),
-      rgba($background-color, 0.95)
-    ),
-    url("../assets/about_background.jpg");
-  min-height: 100vh;
-  background-size: cover;
+  @include background-overlay("../assets/about_background.jpg");
   background-position: center 60%;
   text-align: center;
-  background-attachment: fixed;
   overflow-x: hidden;
   .about__section {
     display: flex;
@@ -132,7 +124,6 @@ export default {
     }
   }
   .about__1 {
-    background-color: rgba(black, 0.75);
     @include section-style;
     .about__section {
       margin: 3rem 0;
@@ -151,7 +142,6 @@ export default {
     }
   }
   .about__3 {
-    background-color: rgba(black, 0.75);
     @include section-style;
     padding-top: 5%;
     &__title {
@@ -175,7 +165,6 @@ export default {
     }
   }
   .about__2 {
-    background-color: rgba(black, 0.75);
     @include section-style;
     padding-top: 5%;
   }
