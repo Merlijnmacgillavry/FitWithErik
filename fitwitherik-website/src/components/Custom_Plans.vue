@@ -99,6 +99,8 @@ export default {
     flex-direction: column;
     .card {
       background: rgba(255, 255, 255, 0.2);
+      @include frosted-glass;
+      @include lifted;
       border-radius: 4px;
       height: 600px;
       width: 400px;
@@ -107,10 +109,8 @@ export default {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      webkit-box-shadow: 9px 10px 22px -8px rgba($background-color, 0.5);
-      -moz-box-shadow: 9px 10px 22px -8px rgba($background-color, 0.5);
-      box-shadow: 9px 10px 22px -8px rgba($background-color, 0.5);
 
+      border: 3px solid $primary-color;
       .btn {
         margin: auto 1em 1em 1em;
       }
