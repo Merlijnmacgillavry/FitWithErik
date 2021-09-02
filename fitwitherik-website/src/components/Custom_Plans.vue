@@ -80,14 +80,7 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/config.scss";
 .custom-plans {
-  background: linear-gradient(
-      to bottom right,
-      rgba($background-color, 0.6),
-      rgba($background-color, 0.95)
-    ),
-    url("../assets/plans.jpg");
-  min-height: 100vh;
-  background-size: cover;
+  @include background-overlay("../assets/plans.jpg");
   background-position: center 50%;
   text-align: center;
   @include section-style;
@@ -109,7 +102,6 @@ export default {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-
       border: 3px solid $primary-color;
       .btn {
         margin: auto 1em 1em 1em;
@@ -144,6 +136,11 @@ export default {
         li {
           font-size: 1.5em;
         }
+      }
+      &:hover {
+        border: 3px solid white;
+        box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5),
+          0 0 20px rgba(255, 255, 255, 0.2);
       }
     }
   }

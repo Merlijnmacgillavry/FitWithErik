@@ -7,14 +7,17 @@
 //Variables
 
 $primary-color: #ff5f1f;
-$primary-color-25: #ff5f1f31;
-$primary-color-50: #ff5f1f8a;
-$primary-color-75: #ff5f1fc4;
+$primary-color-25: rgba($primary-color, 0.25);
+$primary-color-50: rgba($primary-color, 0.5);
+$primary-color-75: rgba($primary-color, 0.75);
 $secondary-color: #fff;
 $green: #31cc37;
 $red: #ff0000;
 $primary-hover-color: #fff;
-$background-color: #161616;
+$background-color: #0f0f0f;
+$background-color-25: rgba($background-color, 0.25);
+$background-color-50: rgba($background-color, 0.5);
+$background-color-75: rgba($background-color, 0.75);
 
 //Base config
 
@@ -41,7 +44,7 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: $primary-color-50;
+  background: $primary-color;
 }
 
 /* Handle on hover */
@@ -85,5 +88,11 @@ a {
     outline-offset: 1000px;
     border: 3px solid white;
     box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+  }
+}
+@include media-sm {
+  .btn:hover {
+    outline: none;
+    box-shadow: none;
   }
 }

@@ -110,19 +110,11 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/config.scss";
 .coaching {
-  background: linear-gradient(
-      to bottom right,
-      rgba($background-color, 0.6),
-      rgba($background-color, 0.95)
-    ),
-    url("../assets/transformation2.jpg");
-  min-height: 100vh;
-  background-size: cover;
+  @include background-overlay("../assets/transformation2.jpg");
   background-position: 93% top;
   text-align: center;
   background-attachment: fixed;
   .coaching__1 {
-    background-color: rgba(black, 0.75);
     @include section-style;
     &__title {
       @include section-title;
@@ -165,7 +157,7 @@ export default {
         @include frosted-glass;
         @include lifted;
         margin: 2em 0px;
-
+        background: $background-color-25;
         border: 3px solid $primary-color;
         border-radius: 4px;
         padding: 2em 1em;
