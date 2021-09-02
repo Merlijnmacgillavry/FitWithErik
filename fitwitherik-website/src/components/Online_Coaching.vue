@@ -154,14 +154,18 @@ export default {
       flex-direction: column;
       justify-content: center;
       .card {
+        @include frosted-glass;
+        @include lifted;
         margin: 2em 0px;
         background: $background-color-25;
         border: 3px solid $primary-color;
         border-radius: 4px;
         padding: 2em 1em;
         &:hover {
-          @include grow;
           cursor: pointer;
+          border: 3px solid white;
+          box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5),
+            0 0 20px rgba(255, 255, 255, 0.2);
         }
         &__title {
           font-size: 2em;

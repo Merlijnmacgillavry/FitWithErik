@@ -150,6 +150,7 @@ export default {
     visibility: visible;
   }
   .menu-nav {
+    @include lifted;
     display: flex;
     flex-flow: column wrap;
     align-items: center;
