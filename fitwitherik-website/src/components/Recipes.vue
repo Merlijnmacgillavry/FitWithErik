@@ -1,47 +1,109 @@
 <template>
   <section class="recipes">
     <h2 class="recipes__title">Recipes (Sneak Peek)</h2>
-    <div class="recipes__card-container">
+    <div
+      class="recipes__card-container"
+      v-for="(recipe, index) in recipes"
+      :key="index"
+    >
       <transition name="flip" mode="out-in">
-        <div v-if="!cards[0].flipped" key="front" class="card">
-          <div class="front-img">
-            <img src="../assets/super_shrimp.jpg" alt="" />
+        <div v-if="!recipe.flipped" key="card" class="card">
+          <div class="card-img">
+            <img :src="require(`@/assets/img/${recipe.img}`)" alt="" />
           </div>
-          <div class="front-content">
-            <h3 class="recipe-title">super shrimp pokébowl</h3>
-            <div class="recipe-description">
-              Powerful bowl of healthy vegetables and fruit combined with shrimp
-              as major protein source and rice as a base
+          <div class="recipe">
+            <h3 class="recipe__title">{{ recipe.name }}</h3>
+            <div class="recipe__description item">
+              {{ recipe.description }}
             </div>
-            <div class="recipe-stats">
-              <p class="stats-item">Calories: 625</p>
-              <p class="stats-item">|</p>
-              <p class="stats-item">Prep time: 30 min</p>
-              <p class="stats-item">|</p>
-              <p class="stats-item">Serving size: 1 [2 small]</p>
+            <div class="recipe__stats item">
+              <p>Calories: {{ recipe.calories }}</p>
+              <p>|</p>
+              <p>Prep time: {{ recipe.duration }} Min</p>
+              <p>|</p>
+              <p>Serving size: {{ recipe.serving_size }}</p>
             </div>
-            <div class="recipe-ingredients">
-              <p class="recipe-ingredients__text">Ingredients:</p>
-              <div class="recipe-ingredients__lists">
+            <div class="recipe__list">
+              <p class="recipe__list__text">Ingredients:</p>
+              <div class="recipe__list__lists">
                 <ul>
-                  <li>75 g Rice</li>
-                  <li>150 g Shrimp</li>
-                  <li>50 g Mango</li>
-                  <li>50 g Paprika</li>
+                  <li
+                    v-for="(ingredient, i) in recipe.ingredients.slice(
+                      0,
+                      recipe.ingredients.length / 2
+                    )"
+                    :key="i"
+                  >
+                    {{ ingredient.amount }} {{ ingredient.name }}
+                  </li>
                 </ul>
                 <ul>
-                  <li>50 g Cucumber</li>
-                  <li>50 g Avacado</li>
-                  <li>50 g Edamame</li>
-                  <li>1 dash of wasabi seeds</li>
+                  <li
+                    v-for="(ingredient, i) in recipe.ingredients.slice(
+                      recipe.ingredients.length / 2,
+                      recipe.ingredients.length - 1
+                    )"
+                    :key="i"
+                  >
+                    {{ ingredient.amount }} {{ ingredient.name }}
+                  </li>
                 </ul>
               </div>
-              <p class="recipe-ingredients__text">
+              <p class="recipe__list__text">
                 Optional: add garlic to season the shrimp
               </p>
             </div>
-            <button class="btn" v-on:click="toggleCard(cards[0])">
+            <button class="btn" v-on:click="toggleCard(recipe)">
               LET'S MAKE THIS
+            </button>
+          </div>
+        </div>
+        <div v-else key="back" class="card reverse">
+          <div class="card-img">
+            <img class="chart" src="../assets/img/shrimp_chart.png" alt="" />
+          </div>
+          <div class="recipe">
+            <h3 class="recipe__title">super shrimp pokébowl</h3>
+            <div class="recipe__description item">
+              Powerful bowl of healthy vegetables and fruit combined with shrimp
+              as major protein source and rice as a base
+            </div>
+            <div class="recipe__stats item">
+              <p>Calories: 625</p>
+              <p>|</p>
+              <p>Prep time: 30 min</p>
+              <p>|</p>
+              <p>Serving size: 1 [2 small]</p>
+            </div>
+            <div class="recipe__list">
+              <p class="recipe__list__text">Steps:</p>
+              <div class="recipe__list__lists flex-column">
+                <ol>
+                  <li
+                    v-for="(step, i) in recipe.steps.slice(
+                      0,
+                      recipe.steps.length / 2
+                    )"
+                    :key="i"
+                  >
+                    {{ step }}
+                  </li>
+                </ol>
+                <ol v-bind:start="recipe.steps.length / 2 + 1">
+                  <li
+                    v-for="(step, i) in recipe.steps.slice(
+                      recipe.steps.length / 2,
+                      recipe.steps.length - 1
+                    )"
+                    :key="i"
+                  >
+                    {{ step }}
+                  </li>
+                </ol>
+              </div>
+            </div>
+            <button class="btn" v-on:click="toggleCard(recipe)">
+              BACK TO INGREDIENTS
             </button>
           </div>
         </div>
@@ -51,6 +113,7 @@
 </template>
 
 <script>
+import recipesList from "../assets/js/Recipes.js";
 export default {
   name: "Recipes",
   data: function () {
@@ -60,6 +123,7 @@ export default {
           flipped: false,
         },
       ],
+      recipes: recipesList,
     };
   },
   methods: {
@@ -67,13 +131,16 @@ export default {
       card.flipped = !card.flipped;
     },
   },
+  mounted: function () {
+    console.log(recipesList);
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../scss/config.scss";
 .recipes {
-  @include background-overlay("../assets/plans.jpg");
+  @include background-overlay("../assets/img/plans.jpg");
   background-position: center 50%;
   text-align: center;
   @include section-style;
@@ -89,7 +156,7 @@ export default {
       @include frosted-glass;
       @include lifted;
       border-radius: 4px;
-      min-height: 800px;
+      height: 100%;
       width: 400px;
       max-width: 100%;
       margin: 2em auto;
@@ -97,7 +164,8 @@ export default {
       flex-direction: column;
       justify-content: space-between;
       border: 3px solid $primary-color;
-      .front-img {
+      min-height: 940px;
+      .card-img {
         img {
           width: 100%;
           height: auto;
@@ -106,56 +174,83 @@ export default {
           border-top-right-radius: 4px;
         }
       }
-      .front-content {
+      .recipe {
         padding: 1em 1em;
         height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        .recipe-title {
+        .item {
+          margin: 0.5em 0;
+        }
+        &__title {
           font-size: 2rem;
           text-transform: uppercase;
         }
 
-        .recipe-stats {
+        &__stats {
           display: flex;
           justify-content: space-between;
-          font-size: 0.9em;
+          font-size: 1em;
+          p:nth-child(even) {
+            color: $primary-color;
+          }
         }
-        .recipe-ingredients__text {
+        &__list__text {
           font-size: 1.25rem;
           margin: 1rem 0;
           &:nth-child(2) {
             font-size: 1rem;
           }
         }
-        .recipe-ingredients__lists {
+        &__list__lists {
           display: flex;
           justify-content: space-evenly;
+          flex-direction: row;
+          font-size: 1.25em;
           ul {
-            font-size: 0.9rem;
             list-style: none;
             text-align: left;
             padding: 0.5em 0;
             &:nth-child(2) {
               text-align: right;
             }
+            li {
+              padding: 0.25em 0;
+            }
+          }
+          ol {
+            text-align: left;
+            padding: 0.5em 0.5em;
+            &:nth-child(1) {
+              padding-bottom: 0;
+            }
+            &:nth-child(2) {
+              text-align: right;
+              padding-top: 0em;
+            }
+            li {
+              padding: 0.25em 0;
+            }
           }
         }
-
+        .flex-column {
+          flex-direction: column;
+          ol {
+            &:nth-child(2) {
+              text-align: left;
+            }
+          }
+        }
         .btn {
-          margin: 1em auto;
+          margin: 0.5em auto;
         }
       }
     }
   }
 }
-@include media-md {
-  .recipes {
-    color: pink;
-  }
-}
-@include media-xl {
+
+@include media-lg {
   .recipes {
     @include title-md-pd;
     &__title {
@@ -163,39 +258,79 @@ export default {
     }
     &__card-container {
       width: 100%;
-      flex-direction: row;
+      height: 100%;
       .card {
         flex-direction: row;
-        height: 600px;
+        max-height: 600px;
+        height: 100%;
         width: 100%;
-        min-height: 100%;
-        .front-img {
-          width: 100%;
-          border-top-right-radius: 0;
-          border-bottom-right-radius: 0;
-          border-bottom: none;
-          border-right: 3px solid $primary-color;
+        min-height: 0;
+        .card-img {
           img {
+            object-fit: cover;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
             height: 100%;
-            width: auto;
+            width: 100%;
+            border-bottom: none;
+            border-right: 3px solid $primary-color;
+          }
+          .chart {
+            object-fit: contain;
           }
         }
-        .front-content {
+        .recipe {
           width: 100%;
           padding: 2em 4em;
           justify-content: space-evenly;
           .recipe-title {
-            font-size: 3rem;
-          }
-          .recipe-description {
             font-size: 2rem;
           }
-          .recipe-stats {
+          &__description {
+            font-size: 1rem;
+          }
+          &__stats {
+            font-size: 1rem;
+          }
+          &__list {
+            &__text {
+              font-size: 1.5rem;
+            }
+            &__lists {
+              font-size: 1.25rem;
+            }
+          }
+        }
+      }
+      .reverse {
+        flex-direction: row-reverse;
+        .card-img {
+          img {
+            border-right: none;
+            border-left: 3px solid $primary-color;
+          }
+        }
+      }
+    }
+  }
+}
+@include media-xl {
+  .recipes {
+    &__card-container {
+      .card {
+        .recipe {
+          &__title {
+            font-size: 2rem;
+          }
+          &__description {
             font-size: 1.5rem;
           }
-          .recipe-ingredients {
+          &__stats {
+            font-size: 1.5rem;
+          }
+          &__list {
             &__text {
-              font-size: 2rem;
+              font-size: 1.5rem;
             }
             &__lists {
               ul {
