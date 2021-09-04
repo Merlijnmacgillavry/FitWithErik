@@ -21,7 +21,7 @@
           research for years.
         </div>
         <div class="img item">
-          <img src="../assets/about_1.png" alt="" />
+          <img src="../assets/img/about_1.png" alt="" />
         </div>
       </div>
       <div class="about__1__starts-here" v-on:click="scrollDown">
@@ -38,7 +38,7 @@
           Action was required and the time for change has come...
         </div>
         <div class="img">
-          <img src="../assets/about_2.png" alt="" />
+          <img src="../assets/img/about_2.png" alt="" />
         </div>
       </div>
       <div class="about__section">
@@ -50,7 +50,7 @@
           to stick to it...
         </div>
         <div class="img">
-          <img src="../assets/about_3.png" alt="" />
+          <img src="../assets/img/about_3.png" alt="" />
         </div>
       </div>
     </section>
@@ -67,7 +67,7 @@
           possible.
         </div>
         <div class="img">
-          <img src="../assets/about_4.png" alt="" />
+          <img src="../assets/img/about_4.png" alt="" />
         </div>
       </div>
       <div class="video">
@@ -101,7 +101,7 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/config.scss";
 .about {
-  @include background-overlay("../assets/about_background.jpg");
+  @include background-overlay("../assets/img/about_background.jpg");
   background-position: center 60%;
   text-align: center;
   overflow-x: hidden;

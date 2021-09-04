@@ -110,7 +110,7 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/config.scss";
 .coaching {
-  @include background-overlay("../assets/transformation2.jpg");
+  @include background-overlay("../assets/img/transformation2.jpg");
   background-position: 93% top;
   text-align: center;
   background-attachment: fixed;
