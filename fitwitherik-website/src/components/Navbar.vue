@@ -56,6 +56,10 @@ export default {
           name: "Contact",
           path: "/contact",
         },
+        {
+          name: "Testimonials",
+          path: "/testimonials",
+        },
       ],
     };
   },
@@ -197,7 +201,7 @@ export default {
 
   // Automate with vue
 
-  @for $i from 1 through 6 {
+  @for $i from 1 through 7 {
     .menu-nav__item:nth-child(#{$i}) {
       transition-delay: ($i * 0.1s) + 0.15s;
     }
