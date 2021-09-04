@@ -4,7 +4,7 @@
     <div class="custom-plans__card-container">
       <transition name="flip" mode="out-in">
         <div v-if="!cards[0].flipped" key="front" class="card">
-          <img class="front-img" src="../assets/plans_1.png" alt="" />
+          <img class="front-img" src="../assets/img/plans_1.png" alt="" />
           <div class="front-content">
             <h3>MUSCLE MAXIMIZATION</h3>
             <p>Training plan</p>
@@ -28,7 +28,7 @@
       </transition>
       <transition name="flip" mode="out-in" key="front">
         <div v-if="!cards[1].flipped" class="card">
-          <img class="front-img" src="../assets/plans_2.png" alt="" />
+          <img class="front-img" src="../assets/img/plans_2.png" alt="" />
           <div class="front-content">
             <h3>FATLOSS FATALITY</h3>
             <p>Diet plan</p>
@@ -80,7 +80,7 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/config.scss";
 .custom-plans {
-  @include background-overlay("../assets/plans.jpg");
+  @include background-overlay("../assets/img/plans.jpg");
   background-position: center 50%;
   text-align: center;
   @include section-style;

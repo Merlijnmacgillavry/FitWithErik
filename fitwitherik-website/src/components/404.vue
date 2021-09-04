@@ -12,7 +12,7 @@
         "You're on the wrong page there buddy, please click on the button to
         return to the site or else I will become big and strong and make you!"
       </span>
-      <img src="../assets/amigo.png" alt="" />
+      <img src="../assets/img/amigo.png" alt="" />
     </div>
   </div>
 </template>
@@ -36,7 +36,7 @@ export default {
       rgba($background-color, 0.6),
       rgba($background-color, 0.95)
     ),
-    url("../assets/plans.jpg");
+    url("../assets/img/plans.jpg");
   background-size: cover;
   background-position: center 50%;
   text-align: center;

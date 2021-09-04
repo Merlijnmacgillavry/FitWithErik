@@ -28,7 +28,7 @@ export default {
       rgba($background-color, 0.6),
       rgba($background-color, 0.95)
     ),
-    url("../assets/home.jpeg");
+    url("../assets/img/home.jpeg");
   min-height: 100vh;
   background-size: cover;
   background-position: center 50%;
