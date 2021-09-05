@@ -60,6 +60,20 @@
         </div>
         <div v-else key="back" class="card reverse">
           <div class="card-img">
+            <div class="legend">
+              <div class="label">
+                <div class="color" id="red"></div>
+                <p>Fats</p>
+              </div>
+              <div class="label">
+                <div class="color" id="blue"></div>
+                <p>Carbs</p>
+              </div>
+              <div class="label">
+                <div class="color" id="green"></div>
+                <p>Protein</p>
+              </div>
+            </div>
             <img class="chart" src="../assets/img/shrimp_chart.png" alt="" />
           </div>
           <div class="recipe">
@@ -166,6 +180,31 @@ export default {
       border: 3px solid $primary-color;
       min-height: 940px;
       .card-img {
+        .legend {
+          display: flex;
+          justify-content: space-evenly;
+          .label {
+            display: flex;
+            margin-top: 1em;
+            .color {
+              width: 40px;
+              height: 20px;
+              border: 2px solid white;
+            }
+            #red {
+              background-color: $red;
+            }
+            #green {
+              background-color: $green;
+            }
+            #blue {
+              background-color: #336699;
+            }
+            p {
+              margin-left: 1em;
+            }
+          }
+        }
         img {
           width: 100%;
           height: auto;
@@ -301,9 +340,10 @@ export default {
       .reverse {
         flex-direction: row-reverse;
         .card-img {
+          border-left: 3px solid $primary-color;
+
           img {
             border-right: none;
-            border-left: 3px solid $primary-color;
           }
         }
       }
