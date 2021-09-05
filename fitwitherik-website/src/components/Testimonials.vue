@@ -16,7 +16,7 @@
           <h2 class="card__name">{{ t.name }} - Before</h2>
           <div class="card__stats">
             <p>Bodyfat: {{ t.bfBefore }}%</p>
-            <p>Bodweight: {{ t.bwBefore }} kg</p>
+            <p>Bodyweight: {{ t.bwBefore }} kg</p>
             <p>Confidence: {{ t.cBefore }}/10</p>
           </div>
           <button class="btn" v-on:click="toggleCard(t)">Transform</button>
@@ -30,7 +30,7 @@
           <h2 class="card__name">{{ t.name }} - After</h2>
           <div class="card__stats">
             <p>Bodyfat: {{ t.bfAfter }}%</p>
-            <p>Bodweight: {{ t.bwAfter }} kg</p>
+            <p>Bodyweight: {{ t.bwAfter }} kg</p>
             <p>Confidence: {{ t.cAfter }}/10</p>
           </div>
           <button class="btn" v-on:click="toggleCard(t)">Transform</button>
