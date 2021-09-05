@@ -212,9 +212,6 @@ export default {
             list-style: none;
             text-align: left;
             padding: 0.5em 0;
-            &:nth-child(2) {
-              text-align: right;
-            }
             li {
               padding: 0.25em 0;
             }
@@ -226,7 +223,6 @@ export default {
               padding-bottom: 0;
             }
             &:nth-child(2) {
-              text-align: right;
               padding-top: 0em;
             }
             li {
