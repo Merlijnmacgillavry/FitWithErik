@@ -7,18 +7,14 @@
       </p>
       <div class="coaching__1__text">
         <h4>Are you experiencing this?</h4>
-        <p class="red">
-          Tried out countless diet plans but none of them seem to work?
-        </p>
-        <p class="red">Don't know where to start with nutrition or training?</p>
+        <p>Tried out countless diet plans but none of them seem to work?</p>
+        <p>Don't know where to start with nutrition or training?</p>
       </div>
       <div class="coaching__1__text">
         <h4>Do you want to...</h4>
-        <p class="green">...eat the foods you like and LOSE weight?</p>
-        <p class="green">...see amazing results in a matter of weeks?</p>
-        <p class="green">
-          ...get amazing results without giving up your social life?
-        </p>
+        <p class="italic">...eat the foods you like and LOSE weight?</p>
+        <p>...see amazing results in a matter of weeks?</p>
+        <p>...get amazing results without giving up your social life?</p>
       </div>
       <div class="coaching__1__find-out" v-on:click="scrollDown">
         <p>Find out more...</p>
@@ -132,6 +128,9 @@ export default {
       p {
         margin: 1em 0px;
         font-size: 1.2rem;
+      }
+      .italic {
+        font-style: italic;
       }
     }
     &__find-out {

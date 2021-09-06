@@ -6,12 +6,13 @@
       :key="index"
       class="testimonials__section"
     >
-      <transition name="fade" mode="out-in">
-        <div v-if="!t.flipped" key="front" class="card">
+      <div class="cards">
+        <div key="front" class="card">
           <img
             :src="require(`@/assets/img/${t.imgBefore}`)"
             alt=""
             class="card__img"
+            style="border-top-left-radius: 3px"
           />
           <h2 class="card__name">{{ t.name }} - Before</h2>
           <div class="card__stats">
@@ -19,13 +20,13 @@
             <p>Bodyweight: {{ t.bwBefore }} kg</p>
             <p>Confidence: {{ t.cBefore }}/10</p>
           </div>
-          <button class="btn" v-on:click="toggleCard(t)">Transform</button>
         </div>
-        <div v-if="t.flipped" key="back" class="card">
+        <div key="back" class="card">
           <img
             :src="require(`@/assets/img/${t.imgAfter}`)"
             alt=""
             class="card__img"
+            style="border-top-right-radius: 3px"
           />
           <h2 class="card__name">{{ t.name }} - After</h2>
           <div class="card__stats">
@@ -33,9 +34,8 @@
             <p>Bodyweight: {{ t.bwAfter }} kg</p>
             <p>Confidence: {{ t.cAfter }}/10</p>
           </div>
-          <button class="btn" v-on:click="toggleCard(t)">Transform</button>
         </div>
-      </transition>
+      </div>
       <div class="info">
         <h3 class="info__title">
           {{ t.program }} Program - {{ Math.round(t.bwBefore - t.bwAfter) }} kg
@@ -43,11 +43,11 @@
         <h4 class="info__person">{{ t.name }}, {{ t.age }} years old</h4>
         <div class="info__review">"{{ t.review }}"</div>
         <p class="info__question">What's your favorite recipe?</p>
-        <p class="info__answer">{{ t.favRecipe }}</p>
+        <p class="info__answer">"{{ t.favRecipe }}"</p>
         <p class="info__question">
           Do you have a favorite exercise from the program?
         </p>
-        <p class="info__answer">{{ t.favExercise }}</p>
+        <p class="info__answer">"{{ t.favExercise }}"</p>
       </div>
     </section>
   </div>
@@ -62,7 +62,6 @@ export default {
         {
           imgBefore: "merlijnBefore.png",
           imgAfter: "merlijnAfter.png",
-          flipped: false,
           name: "Merlijn",
           age: 24,
           program: "Online Coaching",
@@ -82,11 +81,6 @@ export default {
       ],
     };
   },
-  methods: {
-    toggleCard: function (card) {
-      card.flipped = !card.flipped;
-    },
-  },
 };
 </script>
 
@@ -103,25 +97,18 @@ export default {
     display: flex;
     flex-direction: column;
     background-color: $background-color;
-    border: 3px solid $primary-color;
-    border-radius: 4px;
     margin-top: 2rem;
-    &:hover {
-      border: 3px solid white;
-      box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5),
-        0 0 20px rgba(255, 255, 255, 0.2);
+    .cards {
+      display: flex;
     }
     .card {
-      background: rgba(255, 255, 255, 0.2);
+      background-color: $background-color;
       max-width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       &__img {
-        width: auto;
-        border-bottom: 3px solid $primary-color;
-        border-top-left-radius: 2px;
-        border-top-right-radius: 2px;
+        width: 100%;
       }
       &__name {
         padding-top: 0.5em;
@@ -171,6 +158,7 @@ export default {
         height: 600px;
         &__img {
           max-height: 350px;
+          width: auto;
         }
         .btn {
           padding: 0.5em 1em;
