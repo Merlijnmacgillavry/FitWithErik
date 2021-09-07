@@ -1,5 +1,34 @@
 <template>
-    <div>CONTACT</div>
+  <div class="contact">
+    <h2 class="contact__title">Contact</h2>
+    <div class="contact__text">
+      For any general questions about coaching, plans, recipes, or other choose
+      CONTACT ME. If you want to apply for online coaching or talk to me about
+      online coaching choose APPLY NOW, You will be redirected to the proper
+      page where you can fill in the information required.
+    </div>
+    <div class="contact__buttons">
+      <button class="btn">Contact Me</button>
+      <button class="btn">Apply Now</button>
+    </div>
+    <div class="contact__icons">
+      <a
+        href="https://www.youtube.com/channel/UCxZUxW676fzg2aXocWbhSuw"
+        target="_blank"
+      >
+        <i class="fab fa-youtube fa-2x"></i>
+      </a>
+      <a href="https://www.facebook.com/FitwithErik" target="_blank">
+        <i class="fab fa-facebook fa-2x"></i>
+      </a>
+      <a target="_blank" href="https://www.instagram.com/fitwitherik">
+        <i class="fab fa-instagram fa-2x"></i>
+      </a>
+      <a href="https://www.tiktok.com/@fitwitherik" target="_blank">
+        <i class="fab fa-tiktok fa-2x"></i>
+      </a>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -9,4 +38,48 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../scss/config.scss";
+.contact {
+  @include background-overlay("../assets/img/about_background.jpg");
+  @include section-style;
+  background-position: center 60%;
+  text-align: center;
+  overflow-x: hidden;
+  &__title {
+    @include section-title;
+  }
+  &__text {
+    font-size: 1.2rem;
+    margin: 1em;
+  }
+  &__buttons {
+    margin: 1em auto;
+    display: flex;
+    justify-content: space-evenly;
+    button {
+      text-transform: uppercase;
+    }
+  }
+  &__icons {
+    display: flex;
+    justify-content: center;
+    a {
+      padding: 2em 1rem;
+      &:hover {
+        color: $secondary-color;
+      }
+    }
+  }
+}
+@include media-md {
+  .contact {
+    @include title-md-pd;
+    &__title {
+      font-size: $title-md;
+    }
+    &__text {
+      font-size: 1.4rem;
+    }
+  }
+}
 </style>
