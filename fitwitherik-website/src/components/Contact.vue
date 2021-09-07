@@ -8,8 +8,13 @@
       page where you can fill in the information required.
     </div>
     <div class="contact__buttons">
-      <button class="btn">Contact Me</button>
-      <button class="btn">Apply Now</button>
+      <router-link to="/contact_me">
+        <button class="btn">Contact Me</button></router-link
+      >
+      <router-link to="/apply">
+        <button class="btn">Apply Now</button>
+        ></router-link
+      >
     </div>
     <div class="contact__icons">
       <a
