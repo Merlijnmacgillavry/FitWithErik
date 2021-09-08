@@ -3,25 +3,28 @@
     <h2 class="contact_me__title">Contact Me</h2>
     <section class="contact_me__questions">
       <div
-        v-for="(question, index) in formData"
+        v-for="(field, index) in form"
         :key="index"
         class="question"
         ref="name"
       >
-        <p>{{ formFields[index] }}:</p>
+        <p>{{ form[index]["fieldName"] }}:</p>
         <textarea
+          maxlength="1000"
           type="text"
-          v-model="formData[index]"
-          :placeholder="formFields[index] + '..'"
-          v-if="formFields[index] === 'Question'"
+          v-model="form[index]['data']"
+          :placeholder="form[index]['fieldName'] + '..'"
+          v-if="form[index]['fieldName'] === 'Question'"
         />
         <input
           v-else
           type="text"
-          v-model="formData[index]"
-          :placeholder="formFields[index] + '..'"
+          v-model="form[index]['data']"
+          :placeholder="form[index]['fieldName'] + '..'"
         />
-        <p class="error" v-if="formErrors[index]">{{ formFeedback[index] }}</p>
+        <p class="error" v-if="form[index]['error']">
+          {{ form[index]["feedback"] }}
+        </p>
       </div>
       <button class="btn" v-on:click="sendData">SEND DATA</button>
     </section>
@@ -33,29 +36,31 @@ export default {
   name: "Contact Me",
   data: function () {
     return {
-      formFields: {
-        name: "Name",
-        email: "Email Address",
-        phoneNumber: "Phone Number",
-        question: "Question",
-      },
-      formData: {
-        name: null,
-        email: null,
-        phoneNumber: null,
-        question: null,
-      },
-      formErrors: {
-        name: false,
-        email: false,
-        phoneNumber: false,
-        question: false,
-      },
-      formFeedback: {
-        name: "Please provide a name",
-        email: "Please provide an email",
-        phoneNumber: "Please provide a (valid) phone number",
-        question: "Please provide a question",
+      form: {
+        name: {
+          fieldName: "Name",
+          data: "",
+          error: false,
+          feedback: "Please provide a Name",
+        },
+        email: {
+          fieldName: "Email",
+          data: "",
+          error: false,
+          feedback: "Please provide a valid email",
+        },
+        phoneNumber: {
+          fieldName: "Phone Number",
+          data: "",
+          error: false,
+          feedback: "Please provide a phone number",
+        },
+        question: {
+          fieldName: "Question",
+          data: "",
+          error: false,
+          feedback: "Please provide a question",
+        },
       },
     };
   },
@@ -67,44 +72,40 @@ export default {
     },
     validateFormData: function () {
       this.resetFormErrors();
-      if (this.formData.name === null) {
-        this.formErrors.name = true;
+      if (this.form.name.data === "") {
+        this.form.name.error = true;
       }
       if (
-        this.formData.email === null ||
-        !this.validateEmail(this.formData.email)
+        this.form.email.data === "" ||
+        !this.validateEmail(this.form.email.data)
       ) {
-        this.formErrors.email = true;
+        this.form.email.error = true;
       }
-      if (this.formData.phoneNumber === null) {
-        this.formErrors.phoneNumber = true;
+      if (this.form.phoneNumber.data === "") {
+        this.form.phoneNumber.error = true;
       }
-      if (this.formData.question === null) {
-        this.formErrors.question = true;
+      if (this.form.question.data === "") {
+        this.form.question.error = true;
       }
     },
     resetFormErrors: function () {
-      (this.formErrors.name = false),
-        (this.formErrors.email = false),
-        (this.formErrors.phoneNumber = false),
-        (this.formErrors.question = false);
-      console.log("works");
+      for (let field in this.form) {
+        this.form[field]["error"] = false;
+      }
     },
     sendData: function () {
       this.validateFormData();
-      console.log(this.formErrors);
-      for (let error in this.formErrors) {
-        console.log(error);
-        if (this.formErrors[error]) {
+      for (let field in this.form) {
+        if (this.form[field].error) {
           return;
         }
       }
-      const { name, email, phoneNumber, question } = this.formData;
+      const { name, email, phoneNumber, question } = this.form;
       this.axios.post("https://formsubmit.co/ajax/merlijnmac@gmail.com", {
-        name: name,
-        email: email,
-        phoneNumber: phoneNumber,
-        question: question,
+        name: name.data,
+        email: email.data,
+        phoneNumber: phoneNumber.data,
+        question: question.data,
       });
     },
   },
@@ -165,6 +166,9 @@ export default {
       padding: 1em 6em;
       .question {
         margin: 0.5em 0;
+      }
+      .btn {
+        margin-top: 1em;
       }
     }
   }
