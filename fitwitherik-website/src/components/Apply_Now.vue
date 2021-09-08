@@ -1,32 +1,30 @@
 <template>
   <div class="apply_now">
     <h2 class="apply_now__title">Application Form</h2>
-    <section class="apply_now__questions">
-      <!-- <div
-        v-for="(field, index) in form"
+
+    <section v-if="currentStep === 0" class="apply_now__questions">
+      <h3 class="title">
+        These questions give me a good overview to see if you're a good fit for
+        my program!
+      </h3>
+      <div
+        v-for="(field, index) in step_1"
         :key="index"
         class="question"
         ref="name"
       >
-        <p>{{ form[index]["fieldName"] }}:</p>
-        <textarea
-          maxlength="1000"
-          type="text"
-          v-model="form[index]['data']"
-          :placeholder="form[index]['fieldName'] + '..'"
-          v-if="form[index]['fieldName'] === 'Question'"
-        />
+        <p>{{ field["fieldName"] }}:</p>
+
         <input
-          v-else
           type="text"
-          v-model="form[index]['data']"
-          :placeholder="form[index]['fieldName'] + '..'"
+          v-model="field['data']"
+          :placeholder="field['placeholder']"
         />
-        <p class="error" v-if="form[index]['error']">
-          {{ form[index]["feedback"] }}
+        <p class="error" v-if="field['error']">
+          {{ field["feedback"] }}
         </p>
-      </div> -->
-      <!-- <button class="btn" v-on:click="sendData">SEND DATA</button> -->
+      </div>
+      <button class="btn" v-on:click="completeStep_1">Next</button>
     </section>
   </div>
 </template>
@@ -36,30 +34,80 @@ export default {
   name: "Apply Now",
   data: function () {
     return {
-      form: {
+      currentStep: 0,
+      step_1: {
         name: {
           fieldName: "Name",
+          placeholder: "Name...",
           data: "",
           error: false,
           feedback: "Please provide a Name",
         },
         email: {
           fieldName: "Email",
+          placeholder: "example@gmail.com",
           data: "",
           error: false,
           feedback: "Please provide a valid email",
         },
         phoneNumber: {
           fieldName: "Phone Number",
+          placeholder: "Phone Number...",
           data: "",
           error: false,
           feedback: "Please provide a phone number",
         },
         age: {
-          fieldName: "Age",
+          fieldName: "What is your Age?",
           data: "",
+          placeholder: "Age...",
           error: false,
           feedback: "Please provide your age",
+        },
+        height: {
+          fieldName: "What is your height? (cm)",
+          data: "",
+          placeholder: "Height...",
+          error: false,
+          feedback: "Please provide your height",
+        },
+        weight: {
+          fieldName: "What is your weight? (kg)",
+          data: "",
+          placeholder: "Weight...",
+          error: false,
+          feedback: "Please provide your weight",
+        },
+      },
+      step_2: {
+        current_routine: {
+          fieldName:
+            "What does your current fitness routine look like? (#days a week training, which exercises)",
+          data: "",
+          error: false,
+          feedback:
+            "Please provide your routine (if you don't have one type 'none')",
+        },
+        current_diet: {
+          fieldName:
+            "What does your current diet/ average day of eating look like? (how much calories, number of meals a day, what kind of foods)",
+          data: "",
+          error: false,
+          feedback: "Please provide your diet",
+        },
+        goal: {
+          fieldName:
+            "In a year from now, what would your dream body look like? (be specific; weight, bodyfat %, etc)",
+          data: "",
+          error: false,
+          feedback: "Please provide your diet",
+        },
+        hurdles: {
+          fieldName:
+            "In a year from now, what would your dream body look like? (be specific; weight, bodyfat %, etc)",
+          data: "",
+          error: false,
+          feedback: "Please provide your diet",
         },
       },
     };
@@ -70,47 +118,83 @@ export default {
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(String(email).toLowerCase());
     },
-    validateFormData: function () {
+    validateStep_1: function () {
       this.resetFormErrors();
-      if (this.form.name.data === "") {
-        this.form.name.error = true;
+      if (this.step_1.name.data === "") {
+        this.step_1.name.error = true;
       }
       if (
-        this.form.email.data === "" ||
-        !this.validateEmail(this.form.email.data)
+        this.step_1.email.data === "" ||
+        !this.validateEmail(this.step_1.email.data)
       ) {
-        this.form.email.error = true;
+        this.step_1.email.error = true;
       }
-      if (this.form.phoneNumber.data === "") {
-        this.form.phoneNumber.error = true;
+      if (this.step_1.phoneNumber.data === "") {
+        this.step_1.phoneNumber.error = true;
       }
-      if (this.form.question.data === "") {
-        this.form.question.error = true;
+      if (this.step_1.age.data === "") {
+        this.step_1.age.error = true;
+      }
+      if (this.step_1.height.data === "") {
+        this.step_1.height.error = true;
+      }
+      if (this.step_1.weight.data === "") {
+        this.step_1.weight.error = true;
+      }
+    },
+    validateStep_2: function () {
+      this.resetFormErrors();
+      if (this.step_1.name.data === "") {
+        this.step_1.name.error = true;
+      }
+      if (
+        this.step_1.email.data === "" ||
+        !this.validateEmail(this.step_1.email.data)
+      ) {
+        this.step_1.email.error = true;
+      }
+      if (this.step_1.phoneNumber.data === "") {
+        this.step_1.phoneNumber.error = true;
+      }
+      if (this.step_1.age.data === "") {
+        this.step_1.age.error = true;
+      }
+      if (this.step_1.height.data === "") {
+        this.step_1.height.error = true;
+      }
+      if (this.step_1.weight.data === "") {
+        this.step_1.weight.error = true;
       }
     },
     resetFormErrors: function () {
-      for (let field in this.form) {
-        this.form[field]["error"] = false;
+      for (let field in this.step_1) {
+        this.step_1[field]["error"] = false;
       }
     },
-    sendData: function () {
-      this.validateFormData();
-      for (let field in this.form) {
-        if (this.form[field].error) {
-          return;
+    completeStep_1: function () {
+      this.validateStep_1();
+      let errors = false;
+      for (let field in this.step_1) {
+        if (this.step_1[field].error) {
+          errors = true;
         }
       }
-      const { name, email, phoneNumber, question } = this.form;
-      this.axios
-        .post("https://formsubmit.co/ajax/fitwitherik@gmail.com", {
-          name: name.data,
-          email: email.data,
-          phoneNumber: phoneNumber.data,
-          question: question.data,
-        })
-        .then(() =>
-          this.$router.push({ name: "Thank You", params: { type: "question" } })
-        );
+      if (!errors) {
+        this.currentStep++;
+      }
+      window.scrollTo(0, 0);
+
+      // const { name, email, phoneNumber, question } = this.form;
+      // this.axios
+      //   .post("https://formsubmit.co/ajax/fitwitherik@gmail.com", {
+      //     name: name.data,
+      //     email: email.data,
+      //     phoneNumber: phoneNumber.data,
+      //     question: question.data,
+      //   })
+      //   .then(() =>
+      //     this.$router.push({ name: "Thank You", params: { type: "question" } })
+      //   );
     },
   },
 };
@@ -124,6 +208,7 @@ export default {
   background-position: center 60%;
   text-align: center;
   overflow-x: hidden;
+
   &__title {
     @include section-title;
   }
@@ -166,8 +251,12 @@ export default {
     &__title {
       font-size: $title-md;
     }
+    &__progress {
+      padding: 0em 6em;
+    }
     &__questions {
       padding: 1em 6em;
+
       .question {
         margin: 0.5em 0;
       }
