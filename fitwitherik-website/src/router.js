@@ -50,6 +50,11 @@ const routes = [
         component: () => import('./components/Apply_Now.vue')
     },
     {
+        path: "/thank_you/:type",
+        name: "Thank You",
+        component: () => import('./components/Thank_you.vue'),
+    },
+    {
         path: "/*",
         name: "404",
         component: () => import('./components/404.vue')
