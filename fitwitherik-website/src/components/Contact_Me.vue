@@ -101,12 +101,16 @@ export default {
         }
       }
       const { name, email, phoneNumber, question } = this.form;
-      this.axios.post("https://formsubmit.co/ajax/merlijnmac@gmail.com", {
-        name: name.data,
-        email: email.data,
-        phoneNumber: phoneNumber.data,
-        question: question.data,
-      });
+      this.axios
+        .post("https://formsubmit.co/ajax/fitwitherik@gmail.com", {
+          name: name.data,
+          email: email.data,
+          phoneNumber: phoneNumber.data,
+          question: question.data,
+        })
+        .then(() =>
+          this.$router.push({ name: "Thank You", params: { type: "question" } })
+        );
     },
   },
 };
