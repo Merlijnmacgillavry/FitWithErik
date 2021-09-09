@@ -145,9 +145,7 @@ export default {
       card.flipped = !card.flipped;
     },
   },
-  mounted: function () {
-    console.log(recipesList);
-  },
+  mounted: function () {},
 };
 </script>
 

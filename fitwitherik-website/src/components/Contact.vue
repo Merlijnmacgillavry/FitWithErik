@@ -3,9 +3,10 @@
     <h2 class="contact__title">Contact</h2>
     <div class="contact__text">
       For any general questions about coaching, plans, recipes, or other choose
-      CONTACT ME. If you want to apply for online coaching or talk to me about
-      online coaching choose APPLY NOW, You will be redirected to the proper
-      page where you can fill in the information required.
+      <span class="primary">CONTACT ME</span>. If you want to apply for online
+      coaching or talk to me about online coaching choose
+      <span class="primary">APPLY NOW</span>, You will be redirected to the
+      proper page where you can fill in the information required.
     </div>
     <div class="contact__buttons">
       <router-link to="/contact_me">
@@ -13,8 +14,7 @@
       >
       <router-link to="/apply">
         <button class="btn">Apply Now</button>
-        ></router-link
-      >
+      </router-link>
     </div>
     <div class="contact__icons">
       <a

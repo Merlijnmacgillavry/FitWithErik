@@ -41,17 +41,17 @@ const routes = [
     },
     {
         path: "/contact_me",
-        name: "Contact Me",
+        name: "Contact_Me",
         component: () => import('./components/Contact_Me.vue')
     },
     {
         path: "/apply",
-        name: "Apply Now",
+        name: "Apply_Now",
         component: () => import('./components/Apply_Now.vue')
     },
     {
         path: "/thank_you/:type",
-        name: "Thank You",
+        name: "Thank_You",
         component: () => import('./components/Thank_you.vue'),
     },
     {

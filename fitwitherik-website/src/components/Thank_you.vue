@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: "Thank You",
+  name: "Thank_You",
   props: ["type"],
 };
 </script>

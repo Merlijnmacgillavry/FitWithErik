@@ -33,7 +33,7 @@
 
 <script>
 export default {
-  name: "Contact Me",
+  name: "Contact_Me",
   data: function () {
     return {
       form: {
