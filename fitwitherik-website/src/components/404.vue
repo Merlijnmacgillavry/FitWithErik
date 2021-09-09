@@ -5,7 +5,9 @@
         <h1>404</h1>
         <h2>GAINS NOT FOUND</h2>
       </div>
-      <button class="btn" v-on:click="returnHome">Go Back to the Site</button>
+      <router-link to="/"
+        ><button class="btn">GO BACK TO THE SITE</button>
+      </router-link>
     </section>
     <div class="amigo">
       <span class="amigo__text">
@@ -20,11 +22,7 @@
 <script>
 export default {
   name: "404",
-  methods: {
-    returnHome: function () {
-      this.$router.push("/");
-    },
-  },
+  methods: {},
 };
 </script>
 

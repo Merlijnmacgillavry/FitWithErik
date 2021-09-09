@@ -47,7 +47,9 @@
           <p class="discount">25% OFF/WEEK</p>
         </div>
       </div>
-      <button class="btn">CHANGE YOUR LIFE</button>
+      <router-link to="/apply">
+        <button class="btn">CHANGE YOUR LIFE</button></router-link
+      >
     </section>
   </div>
 </template>

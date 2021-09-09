@@ -58,6 +58,9 @@ body {
 .red {
   color: $red;
 }
+.primary {
+  color: $primary-color;
+}
 
 //General scss styles
 
@@ -82,12 +85,12 @@ a {
   @include lifted;
   &:hover {
     color: $primary-color;
-    // outline-color: rgba(71, 126, 232, 0);
-    // outline-offset: 1000px;
+
     border: 3px solid white;
     box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
   }
 }
+
 @include media-sm {
   .btn:hover {
     outline: none;

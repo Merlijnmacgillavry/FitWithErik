@@ -40,6 +40,21 @@ const routes = [
         component: () => import('./components/Testimonials.vue')
     },
     {
+        path: "/contact_me",
+        name: "Contact_Me",
+        component: () => import('./components/Contact_Me.vue')
+    },
+    {
+        path: "/apply",
+        name: "Apply_Now",
+        component: () => import('./components/Apply_Now.vue')
+    },
+    {
+        path: "/thank_you/:type",
+        name: "Thank_You",
+        component: () => import('./components/Thank_you.vue'),
+    },
+    {
         path: "/*",
         name: "404",
         component: () => import('./components/404.vue')

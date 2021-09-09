@@ -7,7 +7,9 @@
         personal life!
       </p>
       <div class="home__content__btn">
-        <button class="btn">CHANGE YOUR LIFE</button>
+        <router-link to="/apply"
+          ><button class="btn">CHANGE YOUR LIFE</button></router-link
+        >
       </div>
     </div>
   </section>
