@@ -157,7 +157,7 @@ export default {
           placeholder: "My dream body would be...",
           data: "",
           error: false,
-          feedback: "Please provide your diet",
+          feedback: "Please provide your dream body",
           types: ["text"],
         },
         hurdles: {
