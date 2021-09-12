@@ -61,7 +61,11 @@ export default {
     margin: 1em auto;
     display: flex;
     justify-content: space-evenly;
+    flex-direction: column;
+
     button {
+      width: 100%;
+      margin: 1em 0;
       text-transform: uppercase;
     }
   }
@@ -84,6 +88,9 @@ export default {
     }
     &__text {
       font-size: 1.4rem;
+    }
+    &__buttons {
+      flex-direction: row;
     }
   }
 }
