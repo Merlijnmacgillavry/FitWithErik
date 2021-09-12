@@ -16,10 +16,22 @@
         <div v-else key="back" class="card">
           <h3 class="back-title">THE MUSCLE MAXIMIZATION PLAN</h3>
           <ul class="back-items">
-            <li>A 16-week personalized muscle building training program</li>
-            <li>Adjusted to your needs every 4 weeks</li>
-            <li>Access to my coaching app</li>
-            <li>24/7 text support</li>
+            <li>
+              <i class="fas fa-check"></i>
+              <p>A 16-week personalized muscle building plan</p>
+            </li>
+            <li>
+              <i class="fas fa-check"></i>
+              <p>Adjusted to your needs every 4 weeks</p>
+            </li>
+            <li>
+              <i class="fas fa-check"></i>
+              <p>Access to my coaching app</p>
+            </li>
+            <li>
+              <i class="fas fa-check"></i>
+              <p>24/7 text support</p>
+            </li>
           </ul>
           <button class="btn" v-on:click="toggleCard(cards[0])">
             LESS INFO
@@ -40,10 +52,22 @@
         <div class="card" v-else key="back">
           <h3 class="back-title">THE FATLOSS FATALITY DIET PLAN</h3>
           <ul class="back-items">
-            <li>A 16-week personalized fat burning diet plan</li>
-            <li>Adjusted to your needs every 2 weeks</li>
-            <li>Access to my coaching app</li>
-            <li>24/7 text support</li>
+            <li>
+              <i class="fas fa-check"></i>
+              <p>A 16-week personalized fat burning diet plan</p>
+            </li>
+            <li>
+              <i class="fas fa-check"></i>
+              <p>Adjusted to your needs every 2 weeks</p>
+            </li>
+            <li>
+              <i class="fas fa-check"></i>
+              <p>Access to my coaching app</p>
+            </li>
+            <li>
+              <i class="fas fa-check"></i>
+              <p>24/7 text support</p>
+            </li>
           </ul>
           <button class="btn" v-on:click="toggleCard(cards[1])">
             LESS INFO
@@ -116,6 +140,8 @@ export default {
         padding: 1em 1em;
         h3 {
           font-size: 2em;
+          text-decoration: underline;
+          text-decoration-color: $primary-color;
         }
         p {
           font-size: 1.5em;
@@ -131,9 +157,17 @@ export default {
       .back-items {
         padding: 0 4em;
         text-align: left;
-        list-style-type: square;
+        list-style-type: none;
         li {
+          margin: 0.5em 0;
           font-size: 1.5em;
+          display: inline-flex;
+          p {
+            margin-left: 0.5em;
+          }
+          i {
+            color: $green;
+          }
         }
       }
       &:hover {
