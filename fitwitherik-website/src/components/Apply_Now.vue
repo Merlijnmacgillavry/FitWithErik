@@ -354,7 +354,7 @@ export default {
           })
           .then(() =>
             this.$router.push({
-              name: "Thank You",
+              name: "Thank_You",
               params: { type: "apply" },
             })
           );

@@ -111,7 +111,7 @@ export default {
           question: question.data,
         })
         .then(() =>
-          this.$router.push({ name: "Thank You", params: { type: "question" } })
+          this.$router.push({ name: "Thank_You", params: { type: "question" } })
         );
     },
   },
