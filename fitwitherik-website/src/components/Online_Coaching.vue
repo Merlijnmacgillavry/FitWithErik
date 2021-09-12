@@ -2,9 +2,6 @@
   <div class="coaching">
     <section class="coaching__1">
       <h2 class="coaching__1__title">Online Coaching Program</h2>
-      <p class="coaching__1__tagline">
-        You want to get the results that you've been aiming for all along?
-      </p>
       <div class="coaching__1__text">
         <h4>Are you experiencing this?</h4>
         <p class="italic">
@@ -131,8 +128,9 @@ export default {
       margin: 1em 0px;
     }
     &__text {
-      margin: 3em 0px;
+      margin: 1.5em 0px;
       h4 {
+        color: $primary-color;
         font-size: 1.4rem;
         margin-bottom: 1em;
       }
