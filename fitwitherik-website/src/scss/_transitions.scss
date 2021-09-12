@@ -1,27 +1,33 @@
-
-.fade-enter-active, .fade-leave-active {
-    transition: opacity .5s;
-    transition-duration: 0.3s;
-    transition-timing-function: ease;
-  }
-  .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
-    opacity: 0
-  }
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+  opacity: 0;
+}
 
 .flip-leave-to {
-  transform: rotateY(180deg);
-  opacity: 0;
+  transform: rotateY(90deg);
 }
-.flip-enter{
-  transform: rotateY(180deg);
-  opacity: 0;
+.flip-enter {
+  transform: rotateY(90deg);
 }
-.flip-enter-to{
-  transform: rotateY(360deg)
+.flip-leave {
+  transform: rotateY(0deg);
+}
+.flip-enter-to {
+  transform: rotateY(0deg);
 }
 
-.flip-enter-active  {
-  transition: transform 1s, opacity 0.5s;
+.flip-enter-active {
+  transition: all 0.4s;
+  transition-timing-function: ease;
+  transform-style: preserve-3d;
+}
+.flip-leave-active {
+  transition: all 0.4s;
   transition-timing-function: ease;
   transform-style: preserve-3d;
 }
@@ -29,46 +35,43 @@
 @mixin transition-ease {
   transition: all 0.5s ease-in-out;
 }
-@mixin bounce{
+@mixin bounce {
   animation: bounce 1s ease infinite;
-    animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
+  animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
 }
-@mixin grow{
-animation: grow 1s forwards ease;
-animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
+@mixin grow {
+  animation: grow 1s forwards ease;
+  animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
 }
-
-
-
 
 @keyframes grow {
   0% {
-    transform: scale(1,1);
+    transform: scale(1, 1);
   }
-  100%{
-    transform: scale(1.05,1.05);
+  100% {
+    transform: scale(1.05, 1.05);
   }
 }
 @keyframes bounce {
-    0% {
-      transform: scale(1, 1) translate(0px, 0px);
-    }
-    10% {
-      transform: scale(1.1, 0.9) translate(0px, 0px);
-    }
-    30% {
-      transform: scale(0.9, 1.1) translate(0px, -20px);
-    }
-    50% {
-      transform: scale(1.05, 0.95) translate(0px, 0px);
-    }
-    57% {
-      transform: scale(1, 1) translate(0px, -4px);
-    }
-    64% {
-      transform: scale(1, 1) translate(0px, 0px);
-    }
-    100% {
-      transform: scale(1, 1) translate(0px, 0px);
-    }
+  0% {
+    transform: scale(1, 1) translate(0px, 0px);
   }
+  10% {
+    transform: scale(1.1, 0.9) translate(0px, 0px);
+  }
+  30% {
+    transform: scale(0.9, 1.1) translate(0px, -20px);
+  }
+  50% {
+    transform: scale(1.05, 0.95) translate(0px, 0px);
+  }
+  57% {
+    transform: scale(1, 1) translate(0px, -4px);
+  }
+  64% {
+    transform: scale(1, 1) translate(0px, 0px);
+  }
+  100% {
+    transform: scale(1, 1) translate(0px, 0px);
+  }
+}
