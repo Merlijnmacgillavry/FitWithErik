@@ -18,6 +18,9 @@
 export default {
   name: "Thank_You",
   props: ["type"],
+  created: function () {
+    window.scrollTo(0, 0);
+  },
 };
 </script>
 

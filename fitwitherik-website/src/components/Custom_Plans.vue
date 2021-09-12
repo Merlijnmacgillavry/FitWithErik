@@ -98,6 +98,9 @@ export default {
       card.flipped = !card.flipped;
     },
   },
+  created: function () {
+    window.scrollTo(0, 0);
+  },
 };
 </script>
 

@@ -23,6 +23,9 @@
 export default {
   name: "404",
   methods: {},
+  created: function () {
+    window.scrollTo(0, 0);
+  },
 };
 </script>
 

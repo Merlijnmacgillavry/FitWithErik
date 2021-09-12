@@ -26,7 +26,7 @@
           {{ form[index]["feedback"] }}
         </p>
       </div>
-      <button class="btn" v-on:click="sendData">SEND DATA</button>
+      <button class="btn" v-on:click="sendData">SUBMIT</button>
     </section>
   </div>
 </template>
@@ -114,6 +114,9 @@ export default {
           this.$router.push({ name: "Thank_You", params: { type: "question" } })
         );
     },
+  },
+  created: function () {
+    window.scrollTo(0, 0);
   },
 };
 </script>

@@ -146,6 +146,9 @@ export default {
     },
   },
   mounted: function () {},
+  created: function () {
+    window.scrollTo(0, 0);
+  },
 };
 </script>
 
