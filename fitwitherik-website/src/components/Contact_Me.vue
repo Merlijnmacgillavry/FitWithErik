@@ -26,7 +26,7 @@
           {{ form[index]["feedback"] }}
         </p>
       </div>
-      <button class="btn" v-on:click="sendData">Submit</button>
+      <button class="btn" v-on:click="sendData">SUBMIT</button>
     </section>
   </div>
 </template>
