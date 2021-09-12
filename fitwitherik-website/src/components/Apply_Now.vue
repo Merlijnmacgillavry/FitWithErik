@@ -157,7 +157,7 @@ export default {
           placeholder: "My dream body would be...",
           data: "",
           error: false,
-          feedback: "Please provide your diet",
+          feedback: "Please provide your dream body",
           types: ["text"],
         },
         hurdles: {
@@ -227,6 +227,36 @@ export default {
         this.step_2[field]["error"] = false;
       }
     },
+    validateHeight: function (height) {
+      if (this.validateNumber(height)) {
+        const heightNumber = parseFloat(height).toFixed(1);
+        if (heightNumber > 20 && heightNumber < 220) {
+          return true;
+        }
+      }
+      return false;
+    },
+    validateWeight: function (weight) {
+      if (this.validateNumber(weight)) {
+        const weightNumber = parseFloat(weight).toFixed(1);
+        if (weightNumber > 40 && weightNumber < 300) {
+          return true;
+        }
+      }
+      return false;
+    },
+    validateAge: function (age) {
+      if (this.validateNumber(age)) {
+        const ageNumber = parseInt(age, 10);
+        if (ageNumber > 15 && ageNumber < 100) {
+          return true;
+        }
+      }
+      return false;
+    },
+    validateNumber: function (value) {
+      return !isNaN(parseFloat(value)) && isFinite(value);
+    },
     validateEmail: function (email) {
       const re =
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -241,8 +271,37 @@ export default {
           errors = true;
         }
       }
-      if (!this.validateEmail(this.step_1["email"]["data"])) {
+      if (
+        !this.validateEmail(this.step_1["email"]["data"]) &&
+        !this.step_1["email"]["error"]
+      ) {
         this.step_1["email"]["error"] = true;
+        this.step_1["email"]["feedback"] = "Fill in a valid email address";
+        errors = true;
+      }
+      if (
+        !this.validateAge(this.step_1["age"]["data"]) &&
+        !this.step_1["age"]["error"]
+      ) {
+        this.step_1["age"]["error"] = true;
+        this.step_1["age"]["feedback"] =
+          "Fill in an age between 15 and 100 please";
+        errors = true;
+      }
+      if (
+        !this.validateHeight(this.step_1["height"]["data"]) &&
+        !this.step_1["height"]["error"]
+      ) {
+        this.step_1["height"]["error"] = true;
+        this.step_1["height"]["feedback"] = "Fill in a valid weight";
+        errors = true;
+      }
+      if (
+        !this.validateWeight(this.step_1["weight"]["data"]) &&
+        !this.step_1["weight"]["error"]
+      ) {
+        this.step_1["weight"]["error"] = true;
+        this.step_1["weight"]["feedback"] = "Fill in a valid weight";
         errors = true;
       }
       return errors;
@@ -278,6 +337,8 @@ export default {
         } = this.step_2;
         this.axios
           .post("https://formsubmit.co/ajax/fitwitherik@gmail.com", {
+            _subject: "Application",
+            _template: "table",
             name: name.data,
             email: email.data,
             phoneNumber: phoneNumber.data,
@@ -293,7 +354,7 @@ export default {
           })
           .then(() =>
             this.$router.push({
-              name: "Thank You",
+              name: "Thank_You",
               params: { type: "apply" },
             })
           );

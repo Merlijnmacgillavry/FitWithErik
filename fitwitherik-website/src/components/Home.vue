@@ -49,9 +49,10 @@ export default {
       font-size: 2rem;
       text-transform: uppercase;
     }
-    &__btn {
-      margin: 2.5em auto;
-
+    &__btn,
+    button {
+      margin: 1.5em auto;
+      min-width: 260px;
       text-align: center;
     }
   }

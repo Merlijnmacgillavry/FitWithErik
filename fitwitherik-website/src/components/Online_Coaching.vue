@@ -192,8 +192,10 @@ export default {
       }
     }
   }
-  .btn {
+  .btn,
+  button {
     margin: 2.5em auto;
+    min-width: 260px;
   }
 }
 
