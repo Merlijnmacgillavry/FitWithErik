@@ -7,14 +7,20 @@
       </p>
       <div class="coaching__1__text">
         <h4>Are you experiencing this?</h4>
-        <p>Tried out countless diet plans but none of them seem to work?</p>
-        <p>Don't know where to start with nutrition or training?</p>
+        <p class="italic">
+          Tried out countless diet plans but none of them seem to work?
+        </p>
+        <p class="italic">
+          Don't know where to start with nutrition or training?
+        </p>
       </div>
       <div class="coaching__1__text">
         <h4>Do you want to...</h4>
         <p class="italic">...eat the foods you like and LOSE weight?</p>
-        <p>...see amazing results in a matter of weeks?</p>
-        <p>...get amazing results without giving up your social life?</p>
+        <p class="italic">...see amazing results in a matter of weeks?</p>
+        <p class="italic">
+          ...get amazing results without giving up your social life?
+        </p>
       </div>
       <div class="coaching__1__find-out" v-on:click="scrollDown">
         <p>Find out more...</p>

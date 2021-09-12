@@ -83,11 +83,11 @@
               as major protein source and rice as a base
             </div>
             <div class="recipe__stats item">
-              <p>Calories: 625</p>
+              <p>Calories: {{ recipe.calories }}</p>
               <p>|</p>
-              <p>Prep time: 30 min</p>
+              <p>Prep time: {{ recipe.duration }} Min</p>
               <p>|</p>
-              <p>Serving size: 1 [2 small]</p>
+              <p>Serving size: {{ recipe.serving_size }}</p>
             </div>
             <div class="recipe__list">
               <p class="recipe__list__text">Steps:</p>
@@ -227,7 +227,7 @@ export default {
 
         &__stats {
           display: flex;
-          justify-content: space-between;
+          justify-content: space-evenly;
           font-size: 1em;
           p:nth-child(even) {
             color: $primary-color;
@@ -294,8 +294,7 @@ export default {
       height: 100%;
       .card {
         flex-direction: row;
-        max-height: 600px;
-        height: 100%;
+        height: 570px;
         width: 100%;
         min-height: 0;
         .card-img {
@@ -314,7 +313,7 @@ export default {
         }
         .recipe {
           width: 100%;
-          padding: 2em 4em;
+          padding: 1em 4em;
           justify-content: space-evenly;
           .recipe-title {
             font-size: 2rem;
