@@ -103,6 +103,8 @@ export default {
       const { name, email, phoneNumber, question } = this.form;
       this.axios
         .post("https://formsubmit.co/ajax/fitwitherik@gmail.com", {
+          _subject: "Question",
+          _template: "table",
           name: name.data,
           email: email.data,
           phoneNumber: phoneNumber.data,

@@ -337,6 +337,8 @@ export default {
         } = this.step_2;
         this.axios
           .post("https://formsubmit.co/ajax/fitwitherik@gmail.com", {
+            _subject: "Application",
+            _template: "table",
             name: name.data,
             email: email.data,
             phoneNumber: phoneNumber.data,
