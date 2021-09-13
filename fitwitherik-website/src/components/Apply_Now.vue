@@ -67,6 +67,7 @@
                 Object.keys(field['options']).length - 1
               ]['active']
             "
+            maxlength="500"
             type="text"
             v-model="field['data']"
             :placeholder="field['placeholder']"
