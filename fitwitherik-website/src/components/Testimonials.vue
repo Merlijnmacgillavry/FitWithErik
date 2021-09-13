@@ -145,7 +145,7 @@ export default {
           }
         }
         padding: 0.5em;
-        font-size: 1.5rem;
+        font-size: 1rem;
         text-align: left;
       }
       .btn {
@@ -184,10 +184,14 @@ export default {
       flex-direction: row;
       justify-content: space-evenly;
       .card {
-        height: 600px;
+        min-height: 500px;
         &__img {
           max-height: 350px;
           width: auto;
+        }
+        &__stats {
+          font-size: 1.5rem;
+          padding-bottom: 1rem;
         }
         .btn {
           padding: 0.5em 1em;
