@@ -14,11 +14,20 @@
             class="card__img"
             style="border-top-left-radius: 3px"
           />
-          <h2 class="card__name">{{ t.name }} - Before</h2>
+          <h2 class="card__name">Before</h2>
           <div class="card__stats">
-            <p>Bodyfat: {{ t.bfBefore }}%</p>
-            <p>Bodyweight: {{ t.bwBefore }} kg</p>
-            <p>Confidence: {{ t.cBefore }}/10</p>
+            <p>
+              <span class="orange">Bodyfat:</span>
+              <span>{{ t.bfBefore }}%</span>
+            </p>
+            <p>
+              <span class="orange">Bodyweight:</span>
+              <span>{{ t.bwBefore }} kg</span>
+            </p>
+            <p>
+              <span class="orange">Confidence:</span>
+              <span>{{ t.cBefore }}/10</span>
+            </p>
           </div>
         </div>
         <div key="back" class="card">
@@ -28,11 +37,19 @@
             class="card__img"
             style="border-top-right-radius: 3px"
           />
-          <h2 class="card__name">{{ t.name }} - After</h2>
+          <h2 class="card__name">After</h2>
           <div class="card__stats">
-            <p>Bodyfat: {{ t.bfAfter }}%</p>
-            <p>Bodyweight: {{ t.bwAfter }} kg</p>
-            <p>Confidence: {{ t.cAfter }}/10</p>
+            <p>
+              <span class="orange">Bodyfat:</span> <span>{{ t.bfAfter }}%</span>
+            </p>
+            <p>
+              <span class="orange">Bodyweight:</span>
+              <span>{{ t.bwAfter }} kg</span>
+            </p>
+            <p>
+              <span class="orange">Confidence:</span>
+              <span>{{ t.cAfter }}/10</span>
+            </p>
           </div>
         </div>
       </div>
@@ -119,8 +136,17 @@ export default {
         text-decoration: underline $primary-color;
       }
       &__stats {
+        p {
+          display: flex;
+          justify-content: space-between;
+          .orange {
+            color: $primary-color;
+            text-transform: uppercase;
+          }
+        }
         padding: 0.5em;
         font-size: 1.5rem;
+        text-align: left;
       }
       .btn {
         margin: auto 1em 1em 1em;

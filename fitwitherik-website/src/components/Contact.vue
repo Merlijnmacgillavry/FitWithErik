@@ -23,7 +23,7 @@
       >
         <i class="fab fa-youtube fa-2x"></i>
       </a>
-      <a href="https://www.facebook.com/FitwithErik" target="_blank">
+      <a href="https://www.facebook.com/erik.sunderman" target="_blank">
         <i class="fab fa-facebook fa-2x"></i>
       </a>
       <a target="_blank" href="https://www.instagram.com/fitwitherik">
