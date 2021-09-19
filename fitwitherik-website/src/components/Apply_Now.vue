@@ -133,6 +133,19 @@ export default {
         },
       },
       step_2: {
+        plan: {
+          fieldName: "What type of plan do you want to apply for?",
+          placeholder: "Plan...",
+          data: "",
+          error: false,
+          feedback: "Please choose a plan",
+          types: ["button"],
+          options: [
+            { data: "1 week plan", active: false },
+            { data: "4 week plan", active: false },
+            { data: "16 week plan", active: false },
+          ],
+        },
         current_routine: {
           fieldName:
             "What does your current fitness routine look like? (#days a week training, which exercises)",
@@ -369,6 +382,20 @@ export default {
   },
   created: function () {
     window.scrollTo(0, 0);
+    switch (this.$route.params.plan) {
+      case 1:
+        this.step_2.plan.options[1].active = true;
+        this.step_2.plan.data = this.step_2.plan.options[1].data;
+        break;
+      case 2:
+        this.step_2.plan.options[2].active = true;
+        this.step_2.plan.data = this.step_2.plan.options[2].data;
+        break;
+      default:
+        this.step_2.plan.options[0].active = true;
+        this.step_2.plan.data = this.step_2.plan.options[0].data;
+        break;
+    }
   },
 };
 </script>

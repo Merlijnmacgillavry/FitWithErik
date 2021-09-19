@@ -45,7 +45,7 @@ const routes = [
         component: () => import('./components/Contact_Me.vue')
     },
     {
-        path: "/apply",
+        path: "/apply/:plan?",
         name: "Apply_Now",
         component: () => import('./components/Apply_Now.vue')
     },
