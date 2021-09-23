@@ -39,7 +39,7 @@
         </div>
       </transition>
       <router-link to="/apply"
-        ><button class="btn" id="apply">APPLY NOW</button></router-link
+        ><button class="btn">APPLY NOW</button></router-link
       >
       <transition name="flip" mode="out-in" key="front">
         <div v-if="!cards[1].flipped" class="card">
@@ -120,7 +120,7 @@ export default {
   &__card-container {
     display: flex;
     flex-direction: column;
-    #apply {
+    a {
       align-self: flex-end;
       margin: 2rem auto;
       order: 3;
@@ -195,7 +195,7 @@ export default {
     &__card-container {
       flex-direction: row;
       justify-content: space-between;
-      #apply {
+      a {
         order: 0;
       }
     }
