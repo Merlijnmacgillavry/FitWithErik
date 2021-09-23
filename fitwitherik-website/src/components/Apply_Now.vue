@@ -75,6 +75,12 @@
         </p>
       </div>
       <div class="end">
+        <input
+          type="text"
+          v-model="honey"
+          name="_honey"
+          style="display: none"
+        />
         <button class="btn" v-on:click="goBack">BACK</button>
         <button class="btn" v-on:click="completeStep_2">SUBMIT</button>
       </div>
@@ -87,6 +93,7 @@ export default {
   name: "Apply_Now",
   data: function () {
     return {
+      honey: "",
       currentStep: 0,
       step_1: {
         name: {
@@ -365,30 +372,33 @@ export default {
           interested,
           plan,
         } = this.step_2;
-        this.axios
-          .post("https://formsubmit.co/ajax/fitwitherik@gmail.com", {
-            _subject: "Application",
-            _template: "table",
-            name: name.data,
-            email: email.data,
-            phoneNumber: phoneNumber.data,
-            age: age.data,
-            height: height.data,
-            weight: weight.data,
-            plan: plan.data,
-            current_routine: current_routine.data,
-            current_diet: current_diet.data,
-            goal: goal.data,
-            hurdles: hurdles.data,
-            current_progress: current_progress.data,
-            interested: interested.data,
-          })
-          .then(() =>
-            this.$router.push({
-              name: "Thank_You",
-              params: { type: "apply" },
+        if (this.honey === "") {
+          this.axios
+            .post("https://formsubmit.co/ajax/fitwitherik@gmail.com", {
+              _subject: "Application",
+              _template: "table",
+              name: name.data,
+              email: email.data,
+              phoneNumber: phoneNumber.data,
+              age: age.data,
+              height: height.data,
+              weight: weight.data,
+              plan: plan.data,
+              current_routine: current_routine.data,
+              current_diet: current_diet.data,
+              goal: goal.data,
+              hurdles: hurdles.data,
+              current_progress: current_progress.data,
+              interested: interested.data,
+              _honey: this.honey,
             })
-          );
+            .then(() =>
+              this.$router.push({
+                name: "Thank_You",
+                params: { type: "apply" },
+              })
+            );
+        }
       }
     },
     goBack: function () {
@@ -445,8 +455,10 @@ export default {
     .end {
       display: flex;
       justify-content: space-between;
+      flex-direction: column;
       .btn {
-        min-width: 180px;
+        width: 100%;
+        margin: 0.5em auto;
       }
     }
     .question {
@@ -510,18 +522,24 @@ export default {
     }
     &__questions {
       padding: 1em 6em;
-
+      .end {
+        flex-direction: row;
+        .btn {
+          margin: 0;
+          width: 180px;
+        }
+      }
       .question {
         margin: 1em 0;
         textarea,
         input {
           margin: 0.5em 0;
-          width: 90%;
+          width: 100%;
         }
         .buttons {
           button {
             margin: 0.5em 0px;
-            width: 90%;
+            width: 100%;
           }
         }
       }
