@@ -38,7 +38,9 @@
           </button>
         </div>
       </transition>
-      <button class="btn" id="apply">APPLY NOW</button>
+      <router-link to="/apply"
+        ><button class="btn" id="apply">CHANGE YOUR LIFE</button></router-link
+      >
       <transition name="flip" mode="out-in" key="front">
         <div v-if="!cards[1].flipped" class="card">
           <img class="front-img" src="../assets/img/plans_2.png" alt="" />
