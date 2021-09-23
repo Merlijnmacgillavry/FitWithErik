@@ -45,20 +45,6 @@
           <p class="name">{{ plan.name.toUpperCase() }} PLAN</p>
           <p class="discount">{{ plan.discount.toUpperCase() }}</p>
         </div>
-        <!-- <div class="price">
-          <p class="name">WEEKLY PLAN</p>
-          <p class="discount" style="text-decoration: line-through">
-            NO DISCOUNT
-          </p>
-        </div>
-        <div class="price">
-          <p class="name">4 WEEKLY PLAN</p>
-          <p class="discount">12.5% OFF/WEEK</p>
-        </div>
-        <div class="price">
-          <p class="name">16 WEEK PLAN</p>
-          <p class="discount">25% OFF/WEEK</p>
-        </div> -->
       </div>
       <router-link
         :to="{ name: 'Apply_Now', params: { plan: this.getSelectedPlan() } }"
@@ -111,13 +97,13 @@ export default {
       plans: [
         {
           index: 0,
-          name: "1 month",
+          name: "1 Month",
           discount: "No discount",
           selected: true,
         },
         {
           index: 1,
-          name: "6 months",
+          name: "6 Months",
           discount: "12.5% off/week",
           selected: false,
         },
