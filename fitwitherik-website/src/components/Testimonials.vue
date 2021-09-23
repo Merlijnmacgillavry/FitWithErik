@@ -12,7 +12,6 @@
             :src="require(`@/assets/img/${t.imgBefore}`)"
             alt=""
             class="card__img"
-            style="border-top-left-radius: 3px"
           />
           <h2 class="card__name">Before</h2>
           <div class="card__stats">
@@ -35,7 +34,6 @@
             :src="require(`@/assets/img/${t.imgAfter}`)"
             alt=""
             class="card__img"
-            style="border-top-right-radius: 3px"
           />
           <h2 class="card__name">After</h2>
           <div class="card__stats">
@@ -116,13 +114,16 @@ export default {
   &__section {
     display: flex;
     flex-direction: column;
-    background-color: $background-color;
+    border: 3px solid $primary-color;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.2);
+    @include frosted-glass;
+    @include lifted;
     margin-top: 2rem;
     .cards {
       display: flex;
     }
     .card {
-      background-color: $background-color;
       max-width: 100%;
       display: flex;
       flex-direction: column;
