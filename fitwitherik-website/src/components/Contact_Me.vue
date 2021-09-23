@@ -26,6 +26,8 @@
           {{ form[index]["feedback"] }}
         </p>
       </div>
+      <input type="text" v-model="honey" name="_honey" style="display: none" />
+
       <button class="btn" v-on:click="sendData">SUBMIT</button>
     </section>
   </div>
@@ -36,6 +38,7 @@ export default {
   name: "Contact_Me",
   data: function () {
     return {
+      honey: "",
       form: {
         name: {
           fieldName: "Name",
@@ -101,18 +104,23 @@ export default {
         }
       }
       const { name, email, phoneNumber, question } = this.form;
-      this.axios
-        .post("https://formsubmit.co/ajax/fitwitherik@gmail.com", {
-          _subject: "Question",
-          _template: "table",
-          name: name.data,
-          email: email.data,
-          phoneNumber: phoneNumber.data,
-          question: question.data,
-        })
-        .then(() =>
-          this.$router.push({ name: "Thank_You", params: { type: "question" } })
-        );
+      if (this.honey === "") {
+        this.axios
+          .post("https://formsubmit.co/ajax/fitwitherik@gmail.com", {
+            _subject: "Question",
+            _template: "table",
+            name: name.data,
+            email: email.data,
+            phoneNumber: phoneNumber.data,
+            question: question.data,
+          })
+          .then(() =>
+            this.$router.push({
+              name: "Thank_You",
+              params: { type: "question" },
+            })
+          );
+      }
     },
   },
   created: function () {
