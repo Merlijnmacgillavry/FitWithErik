@@ -155,8 +155,8 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/config.scss";
 .recipes {
-  @include background-overlay("../assets/img/plans.jpg");
-  background-position: center 50%;
+  @include background-overlay("../assets/img/recipe_background.jpg", 180deg);
+  background-position: center 50% 20%;
   text-align: center;
   @include section-style;
   &__title {

@@ -107,7 +107,7 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/config.scss";
 .custom-plans {
-  @include background-overlay("../assets/img/plans.jpg");
+  @include background-overlay("../assets/img/plans.jpg", 225deg);
   background-position: center 50%;
   text-align: center;
   @include section-style;

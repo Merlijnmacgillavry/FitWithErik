@@ -32,18 +32,10 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/config.scss";
 .error {
-  background: linear-gradient(
-      to bottom right,
-      rgba($background-color, 0.6),
-      rgba($background-color, 0.95)
-    ),
-    url("../assets/img/plans.jpg");
-  background-size: cover;
+  @include background-overlay("../assets/img/home.jpeg");
   background-position: center 50%;
   text-align: center;
-  background-attachment: fixed;
   overflow-x: hidden;
-  min-height: 100vh;
   .error__1 {
     background-color: rgba(black, 0.75);
     @include section-style;

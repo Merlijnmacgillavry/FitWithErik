@@ -104,7 +104,7 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/config.scss";
 .about {
-  @include background-overlay("../assets/img/about_background.jpg");
+  @include background-overlay("../assets/img/about_background.jpg", 225deg);
   background-position: center 60%;
   text-align: center;
   overflow-x: hidden;

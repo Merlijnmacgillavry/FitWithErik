@@ -35,7 +35,17 @@
         </div>
       </div>
       <div class="coaching__2__pricing">
-        <div class="price">
+        <div
+          class="price"
+          v-for="(plan, index) in this.plans"
+          :key="index"
+          v-on:click="selectPlan(plan.name)"
+          :class="{ selected: plan.selected }"
+        >
+          <p class="name">{{ plan.name.toUpperCase() }} PLAN</p>
+          <p class="discount">{{ plan.discount.toUpperCase() }}</p>
+        </div>
+        <!-- <div class="price">
           <p class="name">WEEKLY PLAN</p>
           <p class="discount" style="text-decoration: line-through">
             NO DISCOUNT
@@ -48,9 +58,11 @@
         <div class="price">
           <p class="name">16 WEEK PLAN</p>
           <p class="discount">25% OFF/WEEK</p>
-        </div>
+        </div> -->
       </div>
-      <router-link to="/apply">
+      <router-link
+        :to="{ name: 'Apply_Now', params: { plan: this.getSelectedPlan() } }"
+      >
         <button class="btn">CHANGE YOUR LIFE</button></router-link
       >
     </section>
@@ -96,9 +108,46 @@ export default {
           text: "I offer money back guarantee to assure you this program works!",
         },
       ],
+      plans: [
+        {
+          index: 0,
+          name: "1 week",
+          discount: "No discount",
+          selected: true,
+        },
+        {
+          index: 1,
+          name: "4 week",
+          discount: "12.5% off/week",
+          selected: false,
+        },
+        {
+          index: 2,
+          name: "16 week",
+          discount: "25% off/week",
+          selected: false,
+        },
+      ],
     };
   },
   methods: {
+    selectPlan: function (name) {
+      for (let plan in this.plans) {
+        if (this.plans[plan].name === name) {
+          this.plans[plan].selected = true;
+        } else {
+          this.plans[plan].selected = false;
+        }
+      }
+    },
+    getSelectedPlan: function () {
+      for (let plan in this.plans) {
+        if (this.plans[plan].selected) {
+          return this.plans[plan].index;
+        }
+      }
+      return "";
+    },
     scrollDown: function () {
       let coaching__2 = this.$refs.coaching__2;
       const y = coaching__2.getBoundingClientRect().top;
@@ -114,7 +163,7 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/config.scss";
 .coaching {
-  @include background-overlay("../assets/img/transformation2.jpg");
+  @include background-overlay("../assets/img/transformation2.jpg", 180deg);
   background-position: 93% top;
   text-align: center;
   background-attachment: fixed;
@@ -187,14 +236,27 @@ export default {
     &__pricing {
       display: flex;
       flex-direction: row;
-      justify-content: space-evenly;
+      justify-content: space-between;
+
       .price {
         .name {
-          font-size: 1.5em;
+          font-size: 1em;
+        }
+        .discount {
+          font-size: 0.75em;
         }
         &:hover {
           @include bounce;
           cursor: pointer;
+        }
+      }
+      .selected {
+        color: $primary-color;
+        .name {
+          font-size: 1.1em;
+        }
+        .discount {
+          font-size: 0.85em;
         }
       }
     }
@@ -231,6 +293,26 @@ export default {
       padding-top: 6.75%;
       &__title {
         font-size: $title-md;
+      }
+      &__pricing {
+        justify-content: space-evenly;
+        .price {
+          .name {
+            font-size: 1.5em;
+          }
+          .discount {
+            font-size: 1em;
+          }
+        }
+        .selected {
+          color: $primary-color;
+          .name {
+            font-size: 1.6em;
+          }
+          .discount {
+            font-size: 1.1em;
+          }
+        }
       }
       &__cards {
         flex-direction: row;

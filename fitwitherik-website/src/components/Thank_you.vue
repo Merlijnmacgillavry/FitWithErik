@@ -27,9 +27,9 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/config.scss";
 .thank_you {
-  @include background-overlay("../assets/img/about_background.jpg");
+  @include background-overlay("../assets/img/contact_background.jpg");
   @include section-style;
-  background-position: center 60%;
+  background-position: 20% 30%;
   text-align: center;
   overflow-x: hidden;
   &__title {
