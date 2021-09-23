@@ -445,8 +445,10 @@ export default {
     .end {
       display: flex;
       justify-content: space-between;
+      flex-direction: column;
       .btn {
-        min-width: 180px;
+        width: 100%;
+        margin: 0.5em auto;
       }
     }
     .question {
@@ -510,18 +512,24 @@ export default {
     }
     &__questions {
       padding: 1em 6em;
-
+      .end {
+        flex-direction: row;
+        .btn {
+          margin: 0;
+          width: 180px;
+        }
+      }
       .question {
         margin: 1em 0;
         textarea,
         input {
           margin: 0.5em 0;
-          width: 90%;
+          width: 100%;
         }
         .buttons {
           button {
             margin: 0.5em 0px;
-            width: 90%;
+            width: 100%;
           }
         }
       }
