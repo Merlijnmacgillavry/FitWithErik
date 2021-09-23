@@ -35,7 +35,7 @@ export default {
   @include background-overlay("../assets/img/home.jpeg");
   background-position: center 50%;
   text-align: center;
-  overflow-x: hidden;
+  overflow: hidden;
   .error__1 {
     background-color: rgba(black, 0.75);
     @include section-style;
@@ -59,14 +59,14 @@ export default {
   }
 }
 .amigo {
-  position: absolute;
-  bottom: -5%;
-  right: 0%;
+  position: fixed;
+  bottom: -10%;
+  right: -5%;
   height: 50%;
   &__text {
     position: absolute;
     color: white;
-    right: 80%;
+    right: 85%;
     width: 100%;
     font-size: 1em;
     top: 20%;
@@ -85,6 +85,9 @@ export default {
         }
       }
     }
+  }
+  .amigo {
+    right: 0;
   }
 }
 </style>

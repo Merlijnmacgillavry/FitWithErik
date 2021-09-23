@@ -1,6 +1,12 @@
 <template>
   <section class="recipes">
     <h2 class="recipes__title">Recipes (Sneak Peek)</h2>
+    <h3 class="recipes__descr">
+      Here is one example of the many recipes that are included in the full
+      online coaching program. These recipes are added to the end of your meal
+      plan and provide you with an extensive description of the steps to create
+      a delicious meal.
+    </h3>
     <div
       class="recipes__card-container"
       v-for="(recipe, index) in recipes"
@@ -161,6 +167,10 @@ export default {
   @include section-style;
   &__title {
     @include section-title;
+  }
+  &__descr {
+    font-size: 2em;
+    padding: 1em;
   }
   &__card-container {
     display: flex;

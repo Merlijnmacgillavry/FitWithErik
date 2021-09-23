@@ -71,6 +71,8 @@ export default {
         let navItems = this.$el.querySelectorAll(".menu-nav__item");
         let menuNav = this.$refs.menuNav;
         if (!this.showMenu) {
+          document.body.style.overflowY = "hidden";
+
           hamburger.classList.add("open");
           nav.classList.add("open");
           menuNav.classList.add("open");
@@ -80,6 +82,7 @@ export default {
           nav.classList.remove("open");
           menuNav.classList.remove("open");
           navItems.forEach((item) => item.classList.remove("open"));
+          document.body.style.overflowY = "scroll";
         }
         this.showMenu = !this.showMenu;
       }

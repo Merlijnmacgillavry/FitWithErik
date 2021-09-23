@@ -8,6 +8,13 @@
           : "Thank you for submitting your question!"
       }}
     </h3>
+    <div class="applied" v-if="$route.params.type === 'apply'">
+      <div
+        class="calendly-inline-widget"
+        data-url="https://calendly.com/fitwitherik?hide_gdpr_banner=0"
+        style="min-width: 320px; height: 750px"
+      ></div>
+    </div>
     <router-link to="/">
       <button class="btn">GO BACK TO THE SITE</button>
     </router-link>
