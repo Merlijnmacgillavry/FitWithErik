@@ -111,7 +111,7 @@ export default {
           feedback: "Please provide a phone number",
         },
         age: {
-          fieldName: "What is your Age?",
+          fieldName: "What is your age?",
           data: "",
           placeholder: "Age...",
           error: false,
