@@ -229,18 +229,13 @@ export default {
         this.step_2[field]["options"][o]["active"] =
           !this.step_2[field]["options"][o]["active"];
         if (!this.step_2[field]["data"].includes(value)) {
-          console.log(value);
           this.step_2[field]["data"] =
             this.step_2[field]["data"] + value + ", ";
-
-          console.log(this.step_2[field]["data"]);
         } else {
-          console.log(value);
           this.step_2[field]["data"] = this.step_2[field]["data"].replace(
             value + ", ",
             ""
           );
-          console.log(this.step_2[field]["data"]);
         }
       } else {
         this.step_2[field]["data"] = value;
