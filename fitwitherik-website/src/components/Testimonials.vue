@@ -107,7 +107,7 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/config.scss";
 .testimonials {
-  @include background-overlay("../assets/img/testimonials.jpg");
+  @include background-overlay("../assets/img/testimonials.jpg", 180deg);
   text-align: center;
   @include section-style;
   &__title {

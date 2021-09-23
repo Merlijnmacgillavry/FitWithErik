@@ -404,9 +404,9 @@ export default {
 @import "../scss/config.scss";
 
 .apply_now {
-  @include background-overlay("../assets/img/about_background.jpg");
+  @include background-overlay("../assets/img/contact_background.jpg", 270deg);
   @include section-style;
-  background-position: center 60%;
+  background-position: 20% 30%;
   text-align: center;
   overflow-x: hidden;
 

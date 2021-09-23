@@ -28,12 +28,7 @@ export default {
 @import "../scss/_config.scss";
 
 .home {
-  background: linear-gradient(
-      to bottom right,
-      rgba($background-color, 0.6),
-      rgba($background-color, 0.95)
-    ),
-    url("../assets/img/home.jpeg");
+  @include background-overlay("../assets/img/home.jpeg", 135deg);
   min-height: 100vh;
   background-size: cover;
   background-position: center 50%;
