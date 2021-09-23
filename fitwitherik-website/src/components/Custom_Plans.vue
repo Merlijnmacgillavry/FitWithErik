@@ -39,7 +39,7 @@
         </div>
       </transition>
       <router-link to="/apply"
-        ><button class="btn" id="apply">CHANGE YOUR LIFE</button></router-link
+        ><button class="btn" id="apply">APPLY NOW</button></router-link
       >
       <transition name="flip" mode="out-in" key="front">
         <div v-if="!cards[1].flipped" class="card">
