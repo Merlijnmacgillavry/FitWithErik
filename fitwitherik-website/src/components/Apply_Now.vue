@@ -27,9 +27,6 @@
       <button class="btn" v-on:click="this.completeStep_1">NEXT</button>
     </section>
     <section v-if="currentStep === 1" class="apply_now__questions">
-      <div class="back">
-        <button class="btn" v-on:click="goBack">BACK</button>
-      </div>
       <h3 class="title">
         The next questions are about what you know, what you want to achieve
         this year and what is stopping you from achieving this.
@@ -77,7 +74,10 @@
           {{ field["feedback"] }}
         </p>
       </div>
-      <button class="btn" v-on:click="completeStep_2">SUBMIT</button>
+      <div class="end">
+        <button class="btn" v-on:click="goBack">BACK</button>
+        <button class="btn" v-on:click="completeStep_2">SUBMIT</button>
+      </div>
     </section>
   </div>
 </template>
@@ -141,9 +141,9 @@ export default {
           feedback: "Please choose a plan",
           types: ["button"],
           options: [
-            { data: "1 week plan", active: false },
-            { data: "4 week plan", active: false },
-            { data: "16 week plan", active: false },
+            { data: "1 month plan", active: false },
+            { data: "6 months plan", active: false },
+            { data: "Full year plan", active: false },
           ],
         },
         current_routine: {
@@ -180,11 +180,11 @@ export default {
           data: "",
           error: false,
           feedback: "Please choose an option",
-          types: ["button", "other"],
+          types: ["button", "other", "multiple"],
           options: [
             { data: "Accountability", active: false },
-            { data: "Not enought food knowledge", active: false },
-            { data: "Not enought training knowledge", active: false },
+            { data: "Not enough food knowledge", active: false },
+            { data: "Not enough training knowledge", active: false },
             { data: "Dont know where to start", active: false },
             { data: "Other", active: false },
           ],
@@ -225,14 +225,34 @@ export default {
   },
   methods: {
     setField: function (field, value, o) {
-      this.step_2[field]["data"] = value;
-      for (let opt in this.step_2[field]["options"]) {
-        this.step_2[field]["options"][opt]["active"] = false;
-      }
+      if (this.step_2[field]["types"].includes("multiple")) {
+        this.step_2[field]["options"][o]["active"] =
+          !this.step_2[field]["options"][o]["active"];
+        if (!this.step_2[field]["data"].includes(value)) {
+          console.log(value);
+          this.step_2[field]["data"] =
+            this.step_2[field]["data"] + value + ", ";
 
-      this.step_2[field]["options"][o]["active"] =
-        !this.step_2[field]["options"][o]["active"];
+          console.log(this.step_2[field]["data"]);
+        } else {
+          console.log(value);
+          this.step_2[field]["data"] = this.step_2[field]["data"].replace(
+            value + ", ",
+            ""
+          );
+          console.log(this.step_2[field]["data"]);
+        }
+      } else {
+        this.step_2[field]["data"] = value;
+        for (let opt in this.step_2[field]["options"]) {
+          this.step_2[field]["options"][opt]["active"] = false;
+        }
+
+        this.step_2[field]["options"][o]["active"] =
+          !this.step_2[field]["options"][o]["active"];
+      }
     },
+
     resetFormErrors: function () {
       for (let field in this.step_1) {
         this.step_1[field]["error"] = false;
@@ -348,6 +368,7 @@ export default {
           hurdles,
           current_progress,
           interested,
+          plan,
         } = this.step_2;
         this.axios
           .post("https://formsubmit.co/ajax/fitwitherik@gmail.com", {
@@ -357,8 +378,9 @@ export default {
             email: email.data,
             phoneNumber: phoneNumber.data,
             age: age.data,
-            heigh: height.data,
+            height: height.data,
             weight: weight.data,
+            plan: plan.data,
             current_routine: current_routine.data,
             current_diet: current_diet.data,
             goal: goal.data,
@@ -415,15 +437,22 @@ export default {
   }
   &__questions {
     width: 100%;
-    padding: 2em 2em;
+    padding: 2em 0.5em;
     .title {
       font-size: 2rem;
-      color: $primary-color;
+      // color: $primary-color;
       margin: 2em 0px;
     }
     .back {
       width: 100%;
       text-align: left;
+    }
+    .end {
+      display: flex;
+      justify-content: space-between;
+      .btn {
+        min-width: 180px;
+      }
     }
     .question {
       margin: 3em 0;
@@ -463,6 +492,7 @@ export default {
         font-size: 1.25rem;
         background-color: $background-color;
         border-radius: 4px;
+        resize: vertical;
       }
     }
     .error {
@@ -488,12 +518,15 @@ export default {
 
       .question {
         margin: 1em 0;
+        textarea,
+        input {
+          margin: 0.5em 0;
+          width: 90%;
+        }
         .buttons {
-          display: flex;
-          flex-wrap: wrap;
           button {
-            margin: 1em 2.5%;
-            flex: 40%;
+            margin: 0.5em 0px;
+            width: 90%;
           }
         }
       }

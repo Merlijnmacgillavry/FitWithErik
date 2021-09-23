@@ -111,19 +111,19 @@ export default {
       plans: [
         {
           index: 0,
-          name: "1 week",
+          name: "1 month",
           discount: "No discount",
           selected: true,
         },
         {
           index: 1,
-          name: "4 week",
+          name: "6 months",
           discount: "12.5% off/week",
           selected: false,
         },
         {
           index: 2,
-          name: "16 week",
+          name: "Full year",
           discount: "25% off/week",
           selected: false,
         },
