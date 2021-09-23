@@ -38,6 +38,7 @@
           </button>
         </div>
       </transition>
+      <button class="btn" id="apply">APPLY NOW</button>
       <transition name="flip" mode="out-in" key="front">
         <div v-if="!cards[1].flipped" class="card">
           <img class="front-img" src="../assets/img/plans_2.png" alt="" />
@@ -117,6 +118,11 @@ export default {
   &__card-container {
     display: flex;
     flex-direction: column;
+    #apply {
+      align-self: flex-end;
+      margin: 2rem auto;
+      order: 3;
+    }
     .card {
       background: rgba(255, 255, 255, 0.2);
       @include frosted-glass;
@@ -187,6 +193,9 @@ export default {
     &__card-container {
       flex-direction: row;
       justify-content: space-between;
+      #apply {
+        order: 0;
+      }
     }
     &__title {
       font-size: $title-md;
