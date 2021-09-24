@@ -1,7 +1,7 @@
 <template>
   <div class="coaching">
     <section class="coaching__1">
-      <h2 class="coaching__1__title">Online Coaching Program</h2>
+      <h2 class="coaching__1__title">{{ $t("onlineCoaching.title") }}</h2>
       <div class="coaching__1__text">
         <h4>Are you experiencing this?</h4>
         <p class="italic">

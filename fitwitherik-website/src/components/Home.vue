@@ -2,13 +2,10 @@
   <section class="home">
     <div class="home__content">
       <h1 class="home__content__title">FIT WITH ERIK COACHING</h1>
-      <p class="home__content__tag-line">
-        Helps you lose fat, build muscle and feel great WITHOUT giving up your
-        personal life!
-      </p>
+      <p class="home__content__tag-line">{{ $t("home.tagLine") }}</p>
       <div class="home__content__btn">
         <router-link to="/apply"
-          ><button class="btn">CHANGE YOUR LIFE</button></router-link
+          ><button class="btn">{{ $t("home.button") }}</button></router-link
         >
       </div>
     </div>

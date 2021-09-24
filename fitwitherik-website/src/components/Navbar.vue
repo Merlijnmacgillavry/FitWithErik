@@ -33,6 +33,7 @@
 export default {
   name: "Navbar",
   data: function () {
+    this.$i18n.locale = "nl";
     return {
       showMenu: false,
       links: [
