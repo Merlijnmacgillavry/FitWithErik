@@ -3,17 +3,14 @@
     <section class="error__1">
       <div class="error__1__title">
         <h1>404</h1>
-        <h2>GAINS NOT FOUND</h2>
+        <h2>{{ $t("page404.tagLine") }}</h2>
       </div>
       <router-link to="/"
-        ><button class="btn">GO BACK TO THE SITE</button>
+        ><button class="btn">{{ $t("page404.button") }}</button>
       </router-link>
     </section>
     <div class="amigo">
-      <span class="amigo__text">
-        "You're on the wrong page there buddy, please click on the button to
-        return to the site or else I will become big and strong and make you!"
-      </span>
+      <span class="amigo__text"> "{{ $t("page404.amigoText") }}" </span>
       <img src="../assets/img/amigo.png" alt="" />
     </div>
   </div>

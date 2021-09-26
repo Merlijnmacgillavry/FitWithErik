@@ -1,3 +1,4 @@
+import page404 from "./404/404-en"
 import about from "./about/about-en"
 import applyNow from "./apply_now/applyNow-en"
 import contact from "./contact/contact-en"
@@ -15,5 +16,6 @@ const en = {
     contact: contact,
     contactMe: contactMe,
     applyNow: applyNow,
+    page404: page404,
 }
 export default en

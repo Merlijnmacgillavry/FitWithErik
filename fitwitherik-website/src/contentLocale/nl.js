@@ -1,3 +1,4 @@
+import page404 from "./404/404-nl";
 import about from "./about/about-nl";
 import applyNow from "./apply_now/applyNow-nl";
 import contact from "./contact/contact-nl";
@@ -14,6 +15,7 @@ const nl = {
     testimonials: testimonials,
     contact: contact,
     contactMe: contactMe,
-    applyNow: applyNow
+    applyNow: applyNow,
+    page404: page404
 }
 export default nl;
