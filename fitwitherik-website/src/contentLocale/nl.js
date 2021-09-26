@@ -4,9 +4,11 @@ import applyNow from "./apply_now/applyNow-nl";
 import contact from "./contact/contact-nl";
 import contactMe from "./contact_me/contact_me-nl";
 import home from "./home/home-nl"
+import navbar from "./navbar/navbar-nl";
 import onlineCoaching from "./online-coaching/online-coaching-nl";
 import recipes from "./recipes/recipes-nl";
 import testimonials from "./testimonials/testimonials-nl";
+import thankYou from "./thankyou/thankyou-nl";
 const nl = {
     home: home,
     onlineCoaching: onlineCoaching,
@@ -16,6 +18,8 @@ const nl = {
     contact: contact,
     contactMe: contactMe,
     applyNow: applyNow,
-    page404: page404
+    page404: page404,
+    thankYou: thankYou,
+    navbar: navbar,
 }
 export default nl;
