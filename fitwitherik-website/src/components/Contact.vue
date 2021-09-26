@@ -1,19 +1,19 @@
 <template>
   <div class="contact">
-    <h2 class="contact__title">Contact</h2>
+    <h2 class="contact__title">{{ $t("contact.title") }}</h2>
     <div class="contact__text">
-      For any general questions about coaching, plans, recipes, or other choose
-      <span class="primary">CONTACT ME</span>. If you want to apply for online
-      coaching or talk to me about online coaching choose
-      <span class="primary">APPLY NOW</span>, You will be redirected to the
-      proper page where you can fill in the information required.
+      {{ $t("contact.text_1") }}
+      <span class="primary">{{ $t("contact.button_1") }}</span
+      >{{ $t("contact.text_2") }}
+      <span class="primary">{{ $t("contact.button_2") }}</span
+      >{{ $t("contact.text_3") }}
     </div>
     <div class="contact__buttons">
       <router-link to="/contact_me">
-        <button class="btn">Contact Me</button></router-link
+        <button class="btn">{{ $t("contact.button_1") }}</button></router-link
       >
       <router-link to="/apply">
-        <button class="btn">Apply Now</button>
+        <button class="btn">{{ $t("contact.button_2") }}</button>
       </router-link>
     </div>
     <div class="contact__icons">

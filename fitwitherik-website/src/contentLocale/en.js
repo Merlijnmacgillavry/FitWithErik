@@ -1,4 +1,5 @@
 import about from "./about/about-en"
+import contact from "./contact/contact-en"
 import home from "./home/home-en"
 import onlineCoaching from "./online-coaching/online-coaching-en"
 import recipes from "./recipes/recipes-en"
@@ -8,6 +9,7 @@ const en = {
     onlineCoaching: onlineCoaching,
     recipes: recipes,
     about: about,
-    testimonials: testimonials
+    testimonials: testimonials,
+    contact: contact,
 }
 export default en
