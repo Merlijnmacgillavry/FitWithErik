@@ -1,41 +1,33 @@
 <template>
   <div class="about">
     <section class="about__1">
-      <h2 class="about__1__title">About me</h2>
+      <h2 class="about__1__title">{{ $t("about.title") }}</h2>
       <div class="about__1__intro about__section">
         <div class="text item">
-          My name is Erik Sunderman and I’m a 24 year old Online Fitness Coach.
+          {{ $t("about.about_1.item_1") }} <br /><br />
+          {{ $t("about.about_1.item_2") }}
+          <span class="green">{{ $t("about.about_1.positive_1") }}</span>
+          {{ $t("about.about_1.item_3") }}
+
+          <span class="red">{{ $t("about.about_1.negative") }}</span>
           <br /><br />
-          When I first started training at the age of 17 I wanted to know
-          everything there is to know about
-          <span class="green"
-            >health, resistance training, nutrition and goal setting.</span
-          >
-          Soon I found out that the amount of available information was enormous
-          and it has taken me several years to gather enough knowledge and
-          filter through <span class="red">ineffective approaches.</span>
-          <br /><br />
-          My journey has given me the ability to not only use this knowledge for
-          my own, but also help people improve their health and reach their
-          goals <span class="green">faster</span> without the need to do
-          research for years.
+          {{ $t("about.about_1.item_4") }}
+
+          <span class="green"> {{ $t("about.about_1.positive_2") }} </span>
+          {{ $t("about.about_1.item_5") }}
         </div>
         <div class="img item">
           <img src="../assets/img/about_1.png" alt="" />
         </div>
       </div>
-      <div class="about__1__starts-here" v-on:click="scrollDown">
-        <p>And my journey starts here...</p>
-        <i class="fa fa-angle-down"></i>
-      </div>
     </section>
     <section class="about__2" ref="about__2">
       <div class="about__section reverse">
         <div class="text">
-          At 17 years old, I grew to be 201 cm (6’7ft) tall but weighed only 75
-          kg (165 lbs). According to the the WHO (World Health Organization) was
-          just at the border of being underweight. <br /><br />
-          Action was required and the time for change has come...
+          {{ $t("about.about_2.item_1") }}
+
+          <br /><br />
+          {{ $t("about.about_2.item_2") }}
         </div>
         <div class="img">
           <img src="../assets/img/about_2.png" alt="" />
@@ -43,11 +35,7 @@
       </div>
       <div class="about__section">
         <div class="text">
-          After the first few years of training I discovered how to build muscle
-          and gained approximately 33 kg/72 lbs! Unfortunately, some of that was
-          fat as well and I still didn’t look how I wanted to. Then I learned
-          how to diet properly, what approaches work and how to structure a diet
-          to stick to it...
+          {{ $t("about.about_2.item_3") }}
         </div>
         <div class="img">
           <img src="../assets/img/about_3.png" alt="" />
@@ -56,16 +44,7 @@
     </section>
     <section class="about__3">
       <div class="about__section reverse">
-        <div class="text">
-          I lost about 15 kg/33 lbs of weight during the cut and maintained as
-          much muscle as possible. Now I’m in the best shape of my life! After
-          all these years of learning, making mistakes that I shouldn’t have, I
-          know that it would have been easier and faster progress with guidance.
-          That’s when I realized that I could be that guidance for other
-          people’s fitness journey. Help them avoid mistakes and take correct
-          approaches to their goals to get there as fast and in the best way
-          possible.
-        </div>
+        <div class="text">{{ $t("about.about_2.item_4") }}</div>
         <div class="img">
           <img src="../assets/img/about_4.png" alt="" />
         </div>
