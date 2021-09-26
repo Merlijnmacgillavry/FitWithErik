@@ -3,7 +3,14 @@
     <div class="menu-btn" v-on:click="toggleMenu">
       <span class="menu-btn__burger" ref="hamburger"></span>
     </div>
-
+    <div class="languages" ref="languages">
+      <button class="btn active" ref="nl" v-on:click="changeLang('nl')">
+        <span>Dutch</span> <img src="../assets/img/nl.png" alt="" />
+      </button>
+      <button class="btn" ref="en" v-on:click="changeLang('en')">
+        <span>English</span> <img src="../assets/img/usa.png" />
+      </button>
+    </div>
     <nav class="nav" ref="nav">
       <ul class="menu-nav" ref="menuNav">
         <li class="menu-nav__item">
@@ -15,7 +22,7 @@
         </li>
         <li
           class="menu-nav__item"
-          v-for="({ name, path }, index) in links"
+          v-for="({ name, path }, index) in $t('navbar.links')"
           :key="index"
         >
           <span v-on:click="toggleMenu"
@@ -32,52 +39,37 @@
 <script>
 export default {
   name: "Navbar",
+  components: {},
   data: function () {
+    this.$i18n.locale = "nl";
     return {
       showMenu: false,
-      links: [
-        {
-          name: "Online Coaching",
-          path: "/online_coaching",
-        },
-        {
-          name: "Custom Plans",
-          path: "/custom_plans",
-        },
-        {
-          name: "Recipes",
-          path: "/recipes",
-        },
-        {
-          name: "About me",
-          path: "/about",
-        },
-        {
-          name: "Contact",
-          path: "/contact",
-        },
-        {
-          name: "Testimonials",
-          path: "/testimonials",
-        },
-      ],
     };
   },
   methods: {
+    changeLang: function (lang) {
+      this.$refs.en.classList.remove("active");
+      this.$refs.nl.classList.remove("active");
+      this.$refs[lang].classList.add("active");
+
+      this.$i18n.locale = lang;
+    },
     toggleMenu: function () {
       if (window.innerWidth < 768) {
+        let languages = this.$refs.languages;
         let hamburger = this.$refs.hamburger;
         let nav = this.$refs.nav;
         let navItems = this.$el.querySelectorAll(".menu-nav__item");
         let menuNav = this.$refs.menuNav;
         if (!this.showMenu) {
+          languages.classList.add("languages-open");
           document.body.style.overflowY = "hidden";
-
           hamburger.classList.add("open");
           nav.classList.add("open");
           menuNav.classList.add("open");
           navItems.forEach((item) => item.classList.add("open"));
         } else {
+          languages.classList.remove("languages-open");
           hamburger.classList.remove("open");
           nav.classList.remove("open");
           menuNav.classList.remove("open");
@@ -94,6 +86,44 @@ export default {
 
 <style lang="scss" scoped>
 @import "../scss/_config.scss";
+
+.languages {
+  position: fixed;
+  z-index: 3;
+  left: 100vw;
+  top: 1rem;
+  height: 30px;
+  display: flex;
+  gap: 1em;
+  transition: 0.5s left ease-in-out;
+  @include transition-ease;
+  .btn {
+    width: 120px;
+    height: 30px;
+    line-height: 20px;
+    padding: 0.75em 0;
+    justify-content: center;
+    display: flex;
+    span {
+      align-self: center;
+      text-transform: uppercase;
+      font-size: 1rem;
+    }
+    img {
+      align-self: center;
+      height: 20px;
+      margin-left: 0.5em;
+      // margin: auto 1em;
+    }
+  }
+  .active {
+    border-color: $secondary-color;
+    color: $primary-color;
+  }
+}
+.languages-open {
+  left: 1em;
+}
 .menu-btn {
   position: fixed;
   z-index: 3;
@@ -187,7 +217,7 @@ export default {
     }
     &__link {
       display: inline-block;
-      font-size: 2rem;
+      font-size: 1.5rem;
       text-transform: uppercase;
       padding: 2rem 0;
       font-weight: 300;
@@ -206,13 +236,19 @@ export default {
 
   @for $i from 1 through 7 {
     .menu-nav__item:nth-child(#{$i}) {
-      transition-delay: ($i * 0.1s) + 0.15s;
+      transition-delay: ($i * 0.1s) + 0.3s;
     }
   }
 }
 @include media-md {
   .menu-btn {
     visibility: hidden;
+  }
+  .languages,
+  .languages-open {
+    left: auto;
+    top: 1.5rem;
+    right: 1rem !important;
   }
   .nav {
     visibility: visible;

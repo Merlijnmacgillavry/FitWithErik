@@ -1,34 +1,36 @@
 <template>
   <div class="contact_me">
-    <h2 class="contact_me__title">Contact Me</h2>
+    <h2 class="contact_me__title">{{ $t("contactMe.title") }}</h2>
     <section class="contact_me__questions">
       <div
-        v-for="(field, index) in form"
+        v-for="(field, index) in $t('contactMe.form')"
         :key="index"
         class="question"
         ref="name"
       >
-        <p>{{ form[index]["fieldName"] }}:</p>
+        <p>{{ $t("contactMe.form")[index]["fieldName"] }}:</p>
         <textarea
           maxlength="1000"
           type="text"
-          v-model="form[index]['data']"
-          :placeholder="form[index]['fieldName'] + '..'"
-          v-if="form[index]['fieldName'] === 'Question'"
+          v-model="$t('contactMe.form')[index]['data']"
+          :placeholder="$t('contactMe.form')[index]['fieldName'] + '..'"
+          v-if="$t('contactMe.form')[index]['fieldName'] === 'Question'"
         />
         <input
           v-else
           type="text"
-          v-model="form[index]['data']"
-          :placeholder="form[index]['fieldName'] + '..'"
+          v-model="$t('contactMe.form')[index]['data']"
+          :placeholder="$t('contactMe.form')[index]['fieldName'] + '..'"
         />
-        <p class="error" v-if="form[index]['error']">
-          {{ form[index]["feedback"] }}
+        <p class="error" v-if="$t('contactMe.form')[index]['error']">
+          {{ $t("contactMe.form")[index]["feedback"] }}
         </p>
       </div>
       <input type="text" v-model="honey" name="_honey" style="display: none" />
 
-      <button class="btn" v-on:click="sendData">SUBMIT</button>
+      <button class="btn" v-on:click="sendData">
+        {{ $t("contactMe.button") }}
+      </button>
     </section>
   </div>
 </template>
@@ -39,32 +41,6 @@ export default {
   data: function () {
     return {
       honey: "",
-      form: {
-        name: {
-          fieldName: "Name",
-          data: "",
-          error: false,
-          feedback: "Please provide a Name",
-        },
-        email: {
-          fieldName: "Email",
-          data: "",
-          error: false,
-          feedback: "Please provide a valid email",
-        },
-        phoneNumber: {
-          fieldName: "Phone Number",
-          data: "",
-          error: false,
-          feedback: "Please provide a phone number",
-        },
-        question: {
-          fieldName: "Question",
-          data: "",
-          error: false,
-          feedback: "Please provide a question",
-        },
-      },
     };
   },
   methods: {
@@ -75,35 +51,35 @@ export default {
     },
     validateFormData: function () {
       this.resetFormErrors();
-      if (this.form.name.data === "") {
-        this.form.name.error = true;
+      if (this.$t("contactMe.form").name.data === "") {
+        this.$t("contactMe.form").name.error = true;
       }
       if (
-        this.form.email.data === "" ||
-        !this.validateEmail(this.form.email.data)
+        this.$t("contactMe.form").email.data === "" ||
+        !this.validateEmail(this.$t("contactMe.form").email.data)
       ) {
-        this.form.email.error = true;
+        this.$t("contactMe.form").email.error = true;
       }
-      if (this.form.phoneNumber.data === "") {
-        this.form.phoneNumber.error = true;
+      if (this.$t("contactMe.form").phoneNumber.data === "") {
+        this.$t("contactMe.form").phoneNumber.error = true;
       }
-      if (this.form.question.data === "") {
-        this.form.question.error = true;
+      if (this.$t("contactMe.form").question.data === "") {
+        this.$t("contactMe.form").question.error = true;
       }
     },
     resetFormErrors: function () {
-      for (let field in this.form) {
-        this.form[field]["error"] = false;
+      for (let field in this.$t("contactMe.form")) {
+        this.$t("contactMe.form")[field]["error"] = false;
       }
     },
     sendData: function () {
       this.validateFormData();
-      for (let field in this.form) {
-        if (this.form[field].error) {
+      for (let field in this.$t("contactMe.form")) {
+        if (this.$t("contactMe.form")[field].error) {
           return;
         }
       }
-      const { name, email, phoneNumber, question } = this.form;
+      const { name, email, phoneNumber, question } = this.$t("contactMe.form");
       if (this.honey === "") {
         this.axios
           .post("https://formsubmit.co/ajax/fitwitherik@gmail.com", {
@@ -165,10 +141,11 @@ export default {
       }
     }
     .error {
-      border: 3px solid $red;
+      border: 3px solid $secondary-color;
+      background: $red;
       padding: 0.25em 0.5em;
       margin: 0.5em 0;
-      color: $red;
+      color: $secondary-color;
       border-radius: 4px;
     }
   }

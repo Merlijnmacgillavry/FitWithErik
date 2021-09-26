@@ -1,14 +1,13 @@
 <template>
   <div class="apply_now">
-    <h2 class="apply_now__title">Application Form</h2>
+    <h2 class="apply_now__title">{{ $t("applyNow.title") }}</h2>
 
     <section v-if="currentStep === 0" class="apply_now__questions">
       <h3 class="title">
-        These questions give me a good overview to see if you're a good fit for
-        my program!
+        {{ $t("applyNow.tagLine_1") }}
       </h3>
       <div
-        v-for="(field, index) in step_1"
+        v-for="(field, index) in $t('applyNow.step_1')"
         :key="index"
         class="question"
         ref="name"
@@ -24,16 +23,17 @@
           {{ field["feedback"] }}
         </p>
       </div>
-      <button class="btn" v-on:click="this.completeStep_1">NEXT</button>
+      <button class="btn" v-on:click="this.completeStep_1">
+        {{ $t("applyNow.next") }}
+      </button>
     </section>
     <section v-if="currentStep === 1" class="apply_now__questions">
       <h3 class="title">
-        The next questions are about what you know, what you want to achieve
-        this year and what is stopping you from achieving this.
+        {{ $t("applyNow.tagLine_2") }}
       </h3>
 
       <div
-        v-for="(field, index) in step_2"
+        v-for="(field, index) in $t('applyNow.step_2')"
         :key="index"
         class="question"
         ref="name"
@@ -50,7 +50,9 @@
           <button
             class="btn"
             v-for="(option, o) in field['options']"
-            :class="{ active: step_2[index]['options'][o]['active'] }"
+            :class="{
+              active: $t('applyNow.step_2')[index]['options'][o]['active'],
+            }"
             v-on:click="setField(index, option['data'], o)"
             :key="o"
           >
@@ -60,7 +62,7 @@
         <div class="other" v-if="field['types'].includes('other')">
           <textarea
             v-show="
-              step_2[index]['options'][
+              $t('applyNow.step_2')[index]['options'][
                 Object.keys(field['options']).length - 1
               ]['active']
             "
@@ -81,8 +83,12 @@
           name="_honey"
           style="display: none"
         />
-        <button class="btn" v-on:click="goBack">BACK</button>
-        <button class="btn" v-on:click="completeStep_2">SUBMIT</button>
+        <button class="btn" v-on:click="goBack">
+          {{ $t("applyNow.back") }}
+        </button>
+        <button class="btn" v-on:click="completeStep_2">
+          {{ $t("applyNow.submit") }}
+        </button>
       </div>
     </section>
   </div>
@@ -95,172 +101,38 @@ export default {
     return {
       honey: "",
       currentStep: 0,
-      step_1: {
-        name: {
-          fieldName: "Name",
-          placeholder: "Name...",
-          data: "",
-          error: false,
-          feedback: "Please provide a Name",
-        },
-        email: {
-          fieldName: "Email",
-          placeholder: "example@gmail.com",
-          data: "",
-          error: false,
-          feedback: "Please provide a valid email",
-        },
-        phoneNumber: {
-          fieldName: "Phone Number",
-          placeholder: "Phone Number...",
-          data: "",
-          error: false,
-          feedback: "Please provide a phone number",
-        },
-        age: {
-          fieldName: "What is your age?",
-          data: "",
-          placeholder: "Age...",
-          error: false,
-          feedback: "Please provide your age",
-        },
-        height: {
-          fieldName: "What is your height? (cm)",
-          data: "",
-          placeholder: "Height...",
-          error: false,
-          feedback: "Please provide your height",
-        },
-        weight: {
-          fieldName: "What is your weight? (kg)",
-          data: "",
-          placeholder: "Weight...",
-          error: false,
-          feedback: "Please provide your weight",
-        },
-      },
-      step_2: {
-        plan: {
-          fieldName: "What type of plan do you want to apply for?",
-          placeholder: "Plan...",
-          data: "",
-          error: false,
-          feedback: "Please choose a plan",
-          types: ["button"],
-          options: [
-            { data: "1 month plan", active: false },
-            { data: "6 months plan", active: false },
-            { data: "Full year plan", active: false },
-          ],
-        },
-        current_routine: {
-          fieldName:
-            "What does your current fitness routine look like? (#days a week training, which exercises)",
-          placeholder: "My current Fitness Routine is...",
-          data: "",
-          error: false,
-          feedback:
-            "Please provide your routine (if you don't have one type 'none')",
-          types: ["text"],
-        },
-        current_diet: {
-          fieldName:
-            "What does your current diet/ average day of eating look like? (how much calories, number of meals a day, what kind of foods)",
-          placeholder: "My current diet is...",
-          data: "",
-          error: false,
-          feedback: "Please provide your diet",
-          types: ["text"],
-        },
-        goal: {
-          fieldName:
-            "In a year from now, what would your dream body look like? (be specific; weight, bodyfat %, etc)",
-          placeholder: "My dream body would be...",
-          data: "",
-          error: false,
-          feedback: "Please provide your dream body",
-          types: ["text"],
-        },
-        hurdles: {
-          fieldName: "What stops you from achieving this dream body?",
-          placeholder: "Other namely, ...",
-          data: "",
-          error: false,
-          feedback: "Please choose an option",
-          types: ["button", "other", "multiple"],
-          options: [
-            { data: "Accountability", active: false },
-            { data: "Not enough food knowledge", active: false },
-            { data: "Not enough training knowledge", active: false },
-            { data: "Dont know where to start", active: false },
-            { data: "Other", active: false },
-          ],
-        },
-        current_progress: {
-          fieldName: "What does your current fitness progress look like?",
-          data: "",
-          error: false,
-          feedback: "Please choose an option",
-          types: ["button"],
-          options: [
-            { data: "Bad(Almost no progress or none)", active: false },
-            {
-              data: "Struggling (little progress but not as fast as you'd like)",
-              active: false,
-            },
-            {
-              data: "Successful (good progress, just looking to sustain it)",
-              active: false,
-            },
-          ],
-        },
-        interested: {
-          fieldName:
-            "If you could make fast progress towards your fitness goals, would you be interested?",
-          data: "",
-          error: false,
-          feedback: "Please choose an option",
-          types: ["button"],
-          options: [
-            { data: "No", active: false },
-            { data: "Maybe", active: false },
-            { data: "Yes, Definitely!", active: false },
-          ],
-        },
-      },
     };
   },
   methods: {
     setField: function (field, value, o) {
-      if (this.step_2[field]["types"].includes("multiple")) {
-        this.step_2[field]["options"][o]["active"] =
-          !this.step_2[field]["options"][o]["active"];
-        if (!this.step_2[field]["data"].includes(value)) {
-          this.step_2[field]["data"] =
-            this.step_2[field]["data"] + value + ", ";
+      if (this.$t("applyNow.step_2")[field]["types"].includes("multiple")) {
+        this.$t("applyNow.step_2")[field]["options"][o]["active"] =
+          !this.$t("applyNow.step_2")[field]["options"][o]["active"];
+        if (!this.$t("applyNow.step_2")[field]["data"].includes(value)) {
+          this.$t("applyNow.step_2")[field]["data"] =
+            this.$t("applyNow.step_2")[field]["data"] + value + ", ";
         } else {
-          this.step_2[field]["data"] = this.step_2[field]["data"].replace(
-            value + ", ",
-            ""
-          );
+          this.$t("applyNow.step_2")[field]["data"] = this.$t(
+            "applyNow.step_2"
+          )[field]["data"].replace(value + ", ", "");
         }
       } else {
-        this.step_2[field]["data"] = value;
-        for (let opt in this.step_2[field]["options"]) {
-          this.step_2[field]["options"][opt]["active"] = false;
+        this.$t("applyNow.step_2")[field]["data"] = value;
+        for (let opt in this.$t("applyNow.step_2")[field]["options"]) {
+          this.$t("applyNow.step_2")[field]["options"][opt]["active"] = false;
         }
 
-        this.step_2[field]["options"][o]["active"] =
-          !this.step_2[field]["options"][o]["active"];
+        this.$t("applyNow.step_2")[field]["options"][o]["active"] =
+          !this.$t("applyNow.step_2")[field]["options"][o]["active"];
       }
     },
 
     resetFormErrors: function () {
-      for (let field in this.step_1) {
-        this.step_1[field]["error"] = false;
+      for (let field in this.$t("applyNow.step_1")) {
+        this.$t("applyNow.step_1")[field]["error"] = false;
       }
-      for (let field in this.step_2) {
-        this.step_2[field]["error"] = false;
+      for (let field in this.$t("applyNow.step_2")) {
+        this.$t("applyNow.step_2")[field]["error"] = false;
       }
     },
     validateHeight: function (height) {
@@ -301,43 +173,46 @@ export default {
     validateStep_1: function () {
       let errors = false;
       this.resetFormErrors();
-      for (let field in this.step_1) {
-        if (this.step_1[field]["data"] === "") {
-          this.step_1[field]["error"] = true;
+      for (let field in this.$t("applyNow.step_1")) {
+        if (this.$t("applyNow.step_1")[field]["data"] === "") {
+          this.$t("applyNow.step_1")[field]["error"] = true;
           errors = true;
         }
       }
       if (
-        !this.validateEmail(this.step_1["email"]["data"]) &&
-        !this.step_1["email"]["error"]
+        !this.validateEmail(this.$t("applyNow.step_1")["email"]["data"]) &&
+        !this.$t("applyNow.step_1")["email"]["error"]
       ) {
-        this.step_1["email"]["error"] = true;
-        this.step_1["email"]["feedback"] = "Fill in a valid email address";
+        this.$t("applyNow.step_1")["email"]["error"] = true;
+        this.$t("applyNow.step_1")["email"]["feedback"] =
+          "Fill in a valid email address";
         errors = true;
       }
       if (
-        !this.validateAge(this.step_1["age"]["data"]) &&
-        !this.step_1["age"]["error"]
+        !this.validateAge(this.$t("applyNow.step_1")["age"]["data"]) &&
+        !this.$t("applyNow.step_1")["age"]["error"]
       ) {
-        this.step_1["age"]["error"] = true;
-        this.step_1["age"]["feedback"] =
+        this.$t("applyNow.step_1")["age"]["error"] = true;
+        this.$t("applyNow.step_1")["age"]["feedback"] =
           "Fill in an age between 15 and 100 please";
         errors = true;
       }
       if (
-        !this.validateHeight(this.step_1["height"]["data"]) &&
-        !this.step_1["height"]["error"]
+        !this.validateHeight(this.$t("applyNow.step_1")["height"]["data"]) &&
+        !this.$t("applyNow.step_1")["height"]["error"]
       ) {
-        this.step_1["height"]["error"] = true;
-        this.step_1["height"]["feedback"] = "Fill in a valid weight";
+        this.$t("applyNow.step_1")["height"]["error"] = true;
+        this.$t("applyNow.step_1")["height"]["feedback"] =
+          "Fill in a valid weight";
         errors = true;
       }
       if (
-        !this.validateWeight(this.step_1["weight"]["data"]) &&
-        !this.step_1["weight"]["error"]
+        !this.validateWeight(this.$t("applyNow.step_1")["weight"]["data"]) &&
+        !this.$t("applyNow.step_1")["weight"]["error"]
       ) {
-        this.step_1["weight"]["error"] = true;
-        this.step_1["weight"]["feedback"] = "Fill in a valid weight";
+        this.$t("applyNow.step_1")["weight"]["error"] = true;
+        this.$t("applyNow.step_1")["weight"]["feedback"] =
+          "Fill in a valid weight";
         errors = true;
       }
       return errors;
@@ -346,9 +221,9 @@ export default {
       let errors = false;
       this.resetFormErrors();
       errors = this.validateStep_1();
-      for (let field in this.step_2) {
-        if (this.step_2[field]["data"] === "") {
-          this.step_2[field]["error"] = true;
+      for (let field in this.$t("applyNow.step_2")) {
+        if (this.$t("applyNow.step_2")[field]["data"] === "") {
+          this.$t("applyNow.step_2")[field]["error"] = true;
           errors = true;
         }
       }
@@ -362,7 +237,8 @@ export default {
     },
     completeStep_2: function () {
       if (!this.validateStep_2()) {
-        const { name, email, phoneNumber, age, height, weight } = this.step_1;
+        const { name, email, phoneNumber, age, height, weight } =
+          this.$t("applyNow.step_1");
         const {
           current_routine,
           current_diet,
@@ -371,7 +247,7 @@ export default {
           current_progress,
           interested,
           plan,
-        } = this.step_2;
+        } = this.$t("applyNow.step_2");
         if (this.honey === "") {
           this.axios
             .post("https://formsubmit.co/ajax/fitwitherik@gmail.com", {
@@ -411,16 +287,19 @@ export default {
     window.scrollTo(0, 0);
     switch (this.$route.params.plan) {
       case 1:
-        this.step_2.plan.options[1].active = true;
-        this.step_2.plan.data = this.step_2.plan.options[1].data;
+        this.$t("applyNow.step_2").plan.options[1].active = true;
+        this.$t("applyNow.step_2").plan.data =
+          this.$t("applyNow.step_2").plan.options[1].data;
         break;
       case 2:
-        this.step_2.plan.options[2].active = true;
-        this.step_2.plan.data = this.step_2.plan.options[2].data;
+        this.$t("applyNow.step_2").plan.options[2].active = true;
+        this.$t("applyNow.step_2").plan.data =
+          this.$t("applyNow.step_2").plan.options[2].data;
         break;
       default:
-        this.step_2.plan.options[0].active = true;
-        this.step_2.plan.data = this.step_2.plan.options[0].data;
+        this.$t("applyNow.step_2").plan.options[0].active = true;
+        this.$t("applyNow.step_2").plan.data =
+          this.$t("applyNow.step_2").plan.options[0].data;
         break;
     }
   },
@@ -503,10 +382,11 @@ export default {
       }
     }
     .error {
-      border: 3px solid $red;
+      border: 3px solid $secondary-color;
+      background: $red;
       padding: 0.25em 0.5em;
       margin: 0.5em 0;
-      color: $red;
+      color: $secondary-color;
       border-radius: 4px;
     }
   }

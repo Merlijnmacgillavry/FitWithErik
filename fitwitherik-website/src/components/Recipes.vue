@@ -1,15 +1,12 @@
 <template>
   <section class="recipes">
-    <h2 class="recipes__title">Recipes (Sneak Peek)</h2>
+    <h2 class="recipes__title">{{ $t("recipes.title") }}</h2>
     <h3 class="recipes__descr">
-      Here is one example of the many recipes that are included in the full
-      online coaching program. These recipes are added to the end of your meal
-      plan and provide you with an extensive description of the steps to create
-      a delicious meal.
+      {{ $t("recipes.tagLine") }}
     </h3>
     <div
       class="recipes__card-container"
-      v-for="(recipe, index) in recipes"
+      v-for="(recipe, index) in $t('recipes.recipes')"
       :key="index"
     >
       <transition name="flip" mode="out-in">
@@ -23,14 +20,16 @@
               {{ recipe.description }}
             </div>
             <div class="recipe__stats item">
-              <p>Calories: {{ recipe.calories }}</p>
+              <p>{{ $t("recipes.calories") }}: {{ recipe.calories }}</p>
               <p>|</p>
-              <p>Prep time: {{ recipe.duration }} Min</p>
+              <p>{{ $t("recipes.prepTime") }}: {{ recipe.duration }} Min</p>
               <p>|</p>
-              <p>Serving size: {{ recipe.serving_size }}</p>
+              <p>{{ $t("recipes.servingSize") }}: {{ recipe.serving_size }}</p>
             </div>
             <div class="recipe__list">
-              <p class="recipe__list__text">Ingredients:</p>
+              <p class="recipe__list__text">
+                {{ $t("recipes.ingredients") }} :
+              </p>
               <div class="recipe__list__lists">
                 <ul>
                   <li
@@ -55,12 +54,9 @@
                   </li>
                 </ul>
               </div>
-              <p class="recipe__list__text">
-                Optional: add garlic to season the shrimp
-              </p>
             </div>
             <button class="btn" v-on:click="toggleCard(recipe)">
-              LET'S MAKE THIS
+              {{ $t("recipes.frontButton") }}
             </button>
           </div>
         </div>
@@ -69,34 +65,33 @@
             <div class="legend">
               <div class="label">
                 <div class="color" id="red"></div>
-                <p>Fats</p>
+                <p>{{ $t("recipes.fats") }}</p>
               </div>
               <div class="label">
                 <div class="color" id="blue"></div>
-                <p>Carbs</p>
+                <p>{{ $t("recipes.carbs") }}</p>
               </div>
               <div class="label">
                 <div class="color" id="green"></div>
-                <p>Protein</p>
+                <p>{{ $t("recipes.proteins") }}</p>
               </div>
             </div>
             <img class="chart" src="../assets/img/shrimp_chart.png" alt="" />
           </div>
           <div class="recipe">
-            <h3 class="recipe__title">super shrimp pokébowl</h3>
+            <h3 class="recipe__title">{{ recipe.name }}</h3>
             <div class="recipe__description item">
-              Powerful bowl of healthy vegetables and fruit combined with shrimp
-              as major protein source and rice as a base
+              {{ recipe.description }}
             </div>
             <div class="recipe__stats item">
-              <p>Calories: {{ recipe.calories }}</p>
+              <p>{{ $t("recipes.calories") }}: {{ recipe.calories }}</p>
               <p>|</p>
-              <p>Prep time: {{ recipe.duration }} Min</p>
+              <p>{{ $t("recipes.prepTime") }}: {{ recipe.duration }} Min</p>
               <p>|</p>
-              <p>Serving size: {{ recipe.serving_size }}</p>
+              <p>{{ $t("recipes.servingSize") }}: {{ recipe.serving_size }}</p>
             </div>
             <div class="recipe__list">
-              <p class="recipe__list__text">Steps:</p>
+              <p class="recipe__list__text">{{ $t("recipes.steps") }}:</p>
               <div class="recipe__list__lists flex-column">
                 <ol>
                   <li
@@ -123,7 +118,7 @@
               </div>
             </div>
             <button class="btn" v-on:click="toggleCard(recipe)">
-              BACK TO INGREDIENTS
+              {{ $t("recipes.backButton") }}
             </button>
           </div>
         </div>
@@ -133,18 +128,10 @@
 </template>
 
 <script>
-import recipesList from "../assets/js/Recipes.js";
 export default {
   name: "Recipes",
   data: function () {
-    return {
-      cards: [
-        {
-          flipped: false,
-        },
-      ],
-      recipes: recipesList,
-    };
+    return {};
   },
   methods: {
     toggleCard: function (card) {
@@ -169,8 +156,8 @@ export default {
     @include section-title;
   }
   &__descr {
-    font-size: 2em;
-    padding: 1em;
+    font-size: 1.2rem;
+    margin-top: 1em;
   }
   &__card-container {
     display: flex;
@@ -301,6 +288,9 @@ export default {
     @include title-md-pd;
     &__title {
       font-size: $title-md;
+    }
+    &__descr {
+      font-size: 1.6rem;
     }
     &__card-container {
       width: 100%;

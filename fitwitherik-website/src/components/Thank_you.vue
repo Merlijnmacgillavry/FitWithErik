@@ -1,11 +1,14 @@
 <template>
   <div class="thank_you">
-    <h2 class="thank_you__title">Thank You!</h2>
+    <h2 class="thank_you__title">{{ $t("thankYou.title") }}</h2>
+    <!-- <h3 class="thank_you_message" v-if="$">
+
+    </h3> -->
     <h3 class="thank_you__message">
       {{
         $route.params.type === "apply"
-          ? "Thank you for submitting your application!"
-          : "Thank you for submitting your question!"
+          ? $t("thankYou.tagLine_a")
+          : $t("thankYou.tagLine_q")
       }}
     </h3>
     <div class="applied" v-if="$route.params.type === 'apply'">
@@ -16,7 +19,7 @@
       ></div>
     </div>
     <router-link to="/">
-      <button class="btn">GO BACK TO THE SITE</button>
+      <button class="btn">{{ $t("thankYou.button") }}</button>
     </router-link>
   </div>
 </template>
