@@ -1,8 +1,8 @@
 <template>
   <div class="testimonials">
-    <h2 class="testimonials__title">Testimonials</h2>
+    <h2 class="testimonials__title">{{ $t("testimonials.title") }}</h2>
     <section
-      v-for="(t, index) in testimonials"
+      v-for="(t, index) in $t('testimonials.testimonials')"
       :key="index"
       class="testimonials__section"
     >
@@ -14,18 +14,24 @@
             class="card__img"
             style="border-top-left-radius: 3px"
           />
-          <h2 class="card__name">Before</h2>
+          <h2 class="card__name">{{ $t("testimonials.constants.before") }}</h2>
           <div class="card__stats">
             <p>
-              <span class="orange">Bodyfat:</span>
+              <span class="orange"
+                >{{ $t("testimonials.constants.bodyFat") }}:</span
+              >
               <span>{{ t.bfBefore }}%</span>
             </p>
             <p>
-              <span class="orange">Bodyweight:</span>
+              <span class="orange"
+                >{{ $t("testimonials.constants.bodyWeight") }}:</span
+              >
               <span>{{ t.bwBefore }} kg</span>
             </p>
             <p>
-              <span class="orange">Confidence:</span>
+              <span class="orange"
+                >{{ $t("testimonials.constants.confidence") }}:</span
+              >
               <span>{{ t.cBefore }}/10</span>
             </p>
           </div>
@@ -37,17 +43,24 @@
             class="card__img"
             style="border-top-right-radius: 3px"
           />
-          <h2 class="card__name">After</h2>
+          <h2 class="card__name">{{ $t("testimonials.constants.after") }}</h2>
           <div class="card__stats">
             <p>
-              <span class="orange">Bodyfat:</span> <span>{{ t.bfAfter }}%</span>
+              <span class="orange"
+                >{{ $t("testimonials.constants.bodyFat") }}:</span
+              >
+              <span>{{ t.bfAfter }}%</span>
             </p>
             <p>
-              <span class="orange">Bodyweight:</span>
+              <span class="orange"
+                >{{ $t("testimonials.constants.bodyWeight") }}:</span
+              >
               <span>{{ t.bwAfter }} kg</span>
             </p>
             <p>
-              <span class="orange">Confidence:</span>
+              <span class="orange"
+                >{{ $t("testimonials.constants.confidence") }}:</span
+              >
               <span>{{ t.cAfter }}/10</span>
             </p>
           </div>
@@ -55,14 +68,19 @@
       </div>
       <div class="info">
         <h3 class="info__title">
-          {{ t.program }} Program - {{ Math.round(t.bwBefore - t.bwAfter) }} kg
+          {{ t.program }} {{ $t("testimonials.constants.program") }} -
+          {{ Math.round(t.bwBefore - t.bwAfter) }} kg
         </h3>
-        <h4 class="info__person">{{ t.name }}, {{ t.age }} years old</h4>
+        <h4 class="info__person">
+          {{ t.name }}, {{ t.age }} {{ $t("testimonials.constants.age") }}
+        </h4>
         <div class="info__review">"{{ t.review }}"</div>
-        <p class="info__question">What's your favorite recipe?</p>
+        <p class="info__question">
+          {{ $t("testimonials.constants.question_1") }}
+        </p>
         <p class="info__answer">"{{ t.favRecipe }}"</p>
         <p class="info__question">
-          Do you have a favorite exercise from the program?
+          {{ $t("testimonials.constants.question_2") }}
         </p>
         <p class="info__answer">"{{ t.favExercise }}"</p>
       </div>
@@ -74,29 +92,7 @@
 export default {
   name: "Testimonials",
   data: function () {
-    return {
-      testimonials: [
-        {
-          imgBefore: "merlijnBefore.png",
-          imgAfter: "merlijnAfter.png",
-          name: "Merlijn",
-          age: 24,
-          program: "Online Coaching",
-          review:
-            "Before getting coached by Erik, I had been training in the gym for about 4 years. Of which most of the time I had practically no idea of what I was doing and how I should be training. Ofcourse I got stronger but I also got fat and was just eating very unhealthy. When starting with Erik I learned that getting fit isn't just training. It's about food, sleep, water intake and also the right kind of training. With Erik I lost a lot of weight while keeping (maybe even gaining muscle). I FEEL better and I'm also doing better in all aspects of my life. I'll be continueing my coaching by Erik because I know it is actually worth it.",
-          favRecipe:
-            "My favorite recipe is definitely the protein pancake! I'm eating it everyday!",
-          favExercise:
-            "Although I liked them all, I think my favorite was the chest supported lat pulldown.",
-          bfBefore: 20,
-          bfAfter: 13,
-          bwBefore: 88.9,
-          bwAfter: 78.5,
-          cBefore: 6,
-          cAfter: 9,
-        },
-      ],
-    };
+    return {};
   },
   created: function () {
     window.scrollTo(0, 0);
