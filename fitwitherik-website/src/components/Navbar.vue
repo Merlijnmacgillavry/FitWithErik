@@ -4,10 +4,10 @@
       <span class="menu-btn__burger" ref="hamburger"></span>
     </div>
     <div class="languages" ref="languages">
-      <button class="btn" v-on:click="changeLang('nl')">
+      <button class="btn active" ref="nl" v-on:click="changeLang('nl')">
         <span>Dutch</span> <img src="../assets/img/nl.png" alt="" />
       </button>
-      <button class="btn" v-on:click="changeLang('en')">
+      <button class="btn" ref="en" v-on:click="changeLang('en')">
         <span>English</span> <img src="../assets/img/usa.png" />
       </button>
     </div>
@@ -48,6 +48,10 @@ export default {
   },
   methods: {
     changeLang: function (lang) {
+      this.$refs.en.classList.remove("active");
+      this.$refs.nl.classList.remove("active");
+      this.$refs[lang].classList.add("active");
+
       this.$i18n.locale = lang;
     },
     toggleMenu: function () {
@@ -111,6 +115,10 @@ export default {
       margin-left: 0.5em;
       // margin: auto 1em;
     }
+  }
+  .active {
+    border-color: $secondary-color;
+    color: $primary-color;
   }
 }
 .languages-open {
