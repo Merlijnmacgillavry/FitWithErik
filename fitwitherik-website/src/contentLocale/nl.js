@@ -1,4 +1,5 @@
 import about from "./about/about-nl";
+import applyNow from "./apply_now/applyNow-nl";
 import contact from "./contact/contact-nl";
 import contactMe from "./contact_me/contact_me-nl";
 import home from "./home/home-nl"
@@ -13,5 +14,6 @@ const nl = {
     testimonials: testimonials,
     contact: contact,
     contactMe: contactMe,
+    applyNow: applyNow
 }
 export default nl;

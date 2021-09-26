@@ -1,4 +1,5 @@
 import about from "./about/about-en"
+import applyNow from "./apply_now/applyNow-en"
 import contact from "./contact/contact-en"
 import contactMe from "./contact_me/contact_me-en"
 import home from "./home/home-en"
@@ -12,6 +13,7 @@ const en = {
     about: about,
     testimonials: testimonials,
     contact: contact,
-    contactMe: contactMe
+    contactMe: contactMe,
+    applyNow: applyNow,
 }
 export default en
