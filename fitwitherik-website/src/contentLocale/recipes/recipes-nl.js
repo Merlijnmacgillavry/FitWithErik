@@ -1,6 +1,6 @@
 const recipes = {
     title: 'Recepten (Sneak Peek)',
-    tagLine: 'Hier is een voorbeeld van de vele recepten die inbegrepen zitten bij het online coaching programma. Deze recepten zitten bijgevoegd aan het eind van jou maaltijden plan en verschaffen you met een uitgebreide beschrijving van de stappen om een verukkelijke maaltijd te maken.',
+    tagLine: 'Hier is een voorbeeld van de vele recepten die inbegrepen zitten bij het online coaching programma. Deze recepten zitten bijgevoegd aan het eind van jouw maaltijden plan en verschaffen je met een uitgebreide beschrijving van de stappen om een heerlijke maaltijd te maken.',
     recipes: [
         {
             flipped: false,
