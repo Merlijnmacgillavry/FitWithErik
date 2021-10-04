@@ -4,10 +4,10 @@ const navbar = {
             name: "Online Coaching",
             path: "/online_coaching",
         },
-        // {
-        //     name: "Persoonlijke Plannen",
-        //     path: "/custom_plans",
-        // },
+        {
+            name: "Persoonlijke Plannen",
+            path: "/custom_plans",
+        },
         {
             name: "Recepten",
             path: "/recipes",
