@@ -4,7 +4,7 @@ const onlineCoaching = {
     experience: "Are you experiencing this?",
     experiences: [
         "Tried out countless diet plans but none of them seem to work?",
-        "Don't know where to start with nutrition or training"
+        "Don't know where to start with nutrition or training?"
     ],
     want: "Do you want to...",
     wants: [
@@ -58,13 +58,13 @@ const onlineCoaching = {
         {
             index: 1,
             name: "6 Months",
-            discount: "12.5% off/week",
+            discount: "12.5% off",
             selected: false,
         },
         {
             index: 2,
             name: "Full year",
-            discount: "25% off/week",
+            discount: "25% off",
             selected: false,
         },
     ],

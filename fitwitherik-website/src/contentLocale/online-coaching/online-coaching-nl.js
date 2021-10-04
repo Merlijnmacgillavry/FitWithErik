@@ -51,24 +51,24 @@ const onlineCoaching = {
     plans: [
         {
             index: 0,
-            name: '1 Maand Plan',
+            name: '1 Maand',
             discount: 'Geen korting',
             selected: true,
         },
         {
             index: 1,
-            name: '6 Maanden Plan',
-            discount: '12.5% korting per week',
+            name: '6 Maanden',
+            discount: '12.5% korting',
             selected: false,
         },
         {
             index: 2,
-            name: 'Volledig jaar Plan',
-            discount: '25% korting per week',
+            name: 'Volledig jaar',
+            discount: '25% korting',
             selected: false,
         },
     ],
-    button: 'Transformeer je leven'
+    button: 'TRANSFORMEER JE LEVEN'
 
 }
 
