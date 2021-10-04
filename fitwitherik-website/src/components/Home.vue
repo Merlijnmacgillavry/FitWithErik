@@ -3,6 +3,7 @@
     <div class="home__content">
       <h1 class="home__content__title">FIT WITH ERIK COACHING</h1>
       <p class="home__content__tag-line">{{ $t("home.tagLine") }}</p>
+      <p class="home__content__offer">{{ $t("home.offer") }}</p>
       <div class="home__content__btn">
         <router-link to="/apply"
           ><button class="btn">{{ $t("home.button") }}</button></router-link
@@ -38,11 +39,15 @@ export default {
       border: none;
       font-size: 3.8rem;
     }
-    &__tag-line {
-      font-family: "Big Shoulders Text", bold 500;
+    &__tag-line,
+    &__offer {
       text-align: center;
       font-size: 2rem;
       text-transform: uppercase;
+    }
+    &__offer {
+      margin-top: 1em;
+      font-size: 1.5rem;
     }
     &__btn,
     button {
