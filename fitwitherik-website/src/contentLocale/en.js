@@ -4,6 +4,7 @@ import applyNow from "./apply_now/applyNow-en"
 import contact from "./contact/contact-en"
 import contactMe from "./contact_me/contact_me-en"
 import customPlans from "./custom-plans/custom-plans-en"
+import footer from "./footer/footer-en"
 import home from "./home/home-en"
 import navbar from "./navbar/navbar-en"
 import onlineCoaching from "./online-coaching/online-coaching-en"
@@ -22,6 +23,7 @@ const en = {
     page404: page404,
     thankYou: thankYou,
     navbar: navbar,
-    customPlans: customPlans
+    customPlans: customPlans,
+    footer: footer,
 }
 export default en

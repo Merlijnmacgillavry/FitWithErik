@@ -4,6 +4,7 @@ import applyNow from "./apply_now/applyNow-nl";
 import contact from "./contact/contact-nl";
 import contactMe from "./contact_me/contact_me-nl";
 import customPlans from "./custom-plans/custom-plans-nl";
+import footer from "./footer/footer-nl";
 import home from "./home/home-nl"
 import navbar from "./navbar/navbar-nl";
 import onlineCoaching from "./online-coaching/online-coaching-nl";
@@ -22,6 +23,7 @@ const nl = {
     page404: page404,
     thankYou: thankYou,
     navbar: navbar,
-    customPlans: customPlans
+    customPlans: customPlans,
+    footer: footer
 }
 export default nl;

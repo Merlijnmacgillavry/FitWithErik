@@ -41,7 +41,7 @@ export default {
   name: "Navbar",
   components: {},
   data: function () {
-    this.$i18n.locale = "en";
+    this.$i18n.locale = "nl";
     return {
       showMenu: false,
     };
