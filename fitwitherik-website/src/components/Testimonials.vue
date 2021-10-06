@@ -112,7 +112,7 @@ export default {
   &__section {
     display: flex;
     flex-direction: column;
-    background-color: $background-color;
+    background-color: rgba($background-color, 0.6);
     margin-top: 2rem;
     .cards {
       display: flex;

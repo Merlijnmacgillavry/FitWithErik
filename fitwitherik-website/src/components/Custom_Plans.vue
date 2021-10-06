@@ -18,7 +18,7 @@
           v-for="(type, index) in $t('customPlans.types')"
           :key="index"
         >
-          <p class="type__name">{{ type.name }}</p>
+          <h2 class="type__name">{{ type.name }}</h2>
           <div
             class="type__item"
             v-for="(item, index) in type.items"
@@ -63,9 +63,9 @@ export default {
     @include section-title;
   }
   &__plan {
-    background-color: $background-color;
+    background-color: rgba($background-color, 0.6);
     margin-top: 2rem;
-    padding: 1rem;
+    padding: 2rem 1rem;
     .title {
       font-size: 3rem;
       color: $primary-color;
@@ -83,9 +83,15 @@ export default {
       .type {
         flex-grow: 1;
         border: 3px solid $primary-color;
-        padding: 1em;
+        padding: 2rem 1rem;
+        &:hover {
+          cursor: pointer;
+          border: 3px solid white;
+          box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5),
+            0 0 20px rgba(255, 255, 255, 0.2);
+        }
         &__name {
-          font-size: 2em;
+          font-size: 2.5rem;
           text-transform: uppercase;
           text-decoration: underline;
           color: $primary-color;
@@ -109,18 +115,20 @@ export default {
         }
         .btn {
           margin-top: 1em;
+          padding: 0.5em 2em;
         }
       }
     }
   }
 }
-@include media-md {
+@include media-lg {
   .custom-plans {
     @include title-md-pd;
     &__title {
       font-size: $title-md;
     }
     &__plan {
+      padding: 1rem 2rem;
       .types {
         flex-direction: row;
       }
