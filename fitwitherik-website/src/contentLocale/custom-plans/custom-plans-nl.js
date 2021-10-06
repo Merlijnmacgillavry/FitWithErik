@@ -83,11 +83,11 @@ const customPlans = {
     plans: [
         {
             name: "FAT LOSS FATALITY VOEDINGSPLAN",
-            info: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla at eveniet, esse sequi corporis minus voluptatum ipsam commodi, magnam quaerat tenetur laudantium reiciendis, nisi voluptate?"
+            info: "Een afwisselend voedingsschema dat jou kan begeleiden naar een strand ready lichaam zonder het gevoel van diëten! 4 dagen optie voedingsplan met voedsel dat jij lekker vind en aangepast op de behoeftes van jouw lichaam."
         },
         {
             name: "MUSCLE MAXIMIZATION TRAININGSPLAN",
-            info: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla at eveniet, esse sequi corporis minus voluptatum ipsam commodi, magnam quaerat tenetur laudantium reiciendis, nisi voluptate?"
+            info: "Een trainingsschema waarmee je de potentie van het opbouwen van kracht en spiermassa maximaliseert! 4 weeks hypertrofie gebaseerd trainingsschema met optimaal geselecteerde oefeningen."
 
         },
     ]

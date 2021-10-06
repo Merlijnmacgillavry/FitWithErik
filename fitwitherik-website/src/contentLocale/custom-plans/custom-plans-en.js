@@ -83,11 +83,11 @@ const customPlans = {
     plans: [
         {
             name: "FAT LOSS FATALITY DIET PLAN",
-            info: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla at eveniet, esse sequi corporis minus voluptatum ipsam commodi, magnam quaerat tenetur laudantium reiciendis, nisi voluptate?"
+            info: "A varying nutrition plan which can guide you towards a beach ready body without the diet feeling! 4-day option nutrition plan including foods you like and adapted to your body’s needs."
         },
         {
             name: "MUSCLE MAXIMIZATION WORKOUT PLAN",
-            info: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla at eveniet, esse sequi corporis minus voluptatum ipsam commodi, magnam quaerat tenetur laudantium reiciendis, nisi voluptate?"
+            info: "A training program to maximize the potential to gain strength and muscle! 4 week hypertrophy based workout plan to get you stronger and bigger with selected exercises optimal to get you results."
 
         },
     ]
