@@ -31,6 +31,11 @@ export default {
   created: function () {
     window.scrollTo(0, 0);
   },
+   mounted () {
+    const recaptchaScript = document.createElement('script')
+    recaptchaScript.setAttribute('src', 'https://assets.calendly.com/assets/external/widget.js')
+    document.head.appendChild(recaptchaScript)
+  }
 };
 </script>
 

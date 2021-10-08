@@ -72,6 +72,11 @@ export default {
         this.$t("contactMe.form")[field]["error"] = false;
       }
     },
+    resetForm: function () {
+      for (let field in this.$t("contactMe.form")) {
+        this.$t("contactMe.form")[field]["data"] = "";
+      }
+    },
     sendData: function () {
       this.validateFormData();
       for (let field in this.$t("contactMe.form")) {
@@ -90,12 +95,13 @@ export default {
             phoneNumber: phoneNumber.data,
             question: question.data,
           })
-          .then(() =>
+          .then(() => {
             this.$router.push({
               name: "Thank_You",
               params: { type: "question" },
-            })
-          );
+            });
+            this.resetForm();
+          });
       }
     },
   },

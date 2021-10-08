@@ -23,7 +23,7 @@
     </section>
     <section class="about__2" ref="about__2">
       <div class="about__section reverse">
-        <div class="text">
+        <div class="text right">
           {{ $t("about.about_2.item_1") }}
 
           <br /><br />
@@ -44,7 +44,7 @@
     </section>
     <section class="about__3">
       <div class="about__section reverse">
-        <div class="text">{{ $t("about.about_2.item_4") }}</div>
+        <div class="text right">{{ $t("about.about_2.item_4") }}</div>
         <div class="img">
           <img src="../assets/img/about_4.png" alt="" />
         </div>
@@ -94,7 +94,10 @@ export default {
     .text {
       font-size: 1.2rem;
       margin: 1em;
-      text-align: justify;
+      text-align: left;
+    }
+    .right {
+      text-align: right;
     }
     .img {
       width: 50%;

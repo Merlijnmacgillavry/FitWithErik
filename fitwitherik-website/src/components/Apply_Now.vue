@@ -135,6 +135,14 @@ export default {
         this.$t("applyNow.step_2")[field]["error"] = false;
       }
     },
+    resetForm: function () {
+      for (let field in this.$t("applyNow.step_1")) {
+        this.$t("applyNow.step_1")[field]["data"] = "";
+      }
+      for (let field in this.$t("applyNow.step_2")) {
+        this.$t("applyNow.step_2")[field]["data"] = "";
+      }
+    },
     validateHeight: function (height) {
       if (this.validateNumber(height)) {
         const heightNumber = parseFloat(height).toFixed(1);
@@ -184,8 +192,6 @@ export default {
         !this.$t("applyNow.step_1")["email"]["error"]
       ) {
         this.$t("applyNow.step_1")["email"]["error"] = true;
-        this.$t("applyNow.step_1")["email"]["feedback"] =
-          "Fill in a valid email address";
         errors = true;
       }
       if (
@@ -193,8 +199,7 @@ export default {
         !this.$t("applyNow.step_1")["age"]["error"]
       ) {
         this.$t("applyNow.step_1")["age"]["error"] = true;
-        this.$t("applyNow.step_1")["age"]["feedback"] =
-          "Fill in an age between 15 and 100 please";
+
         errors = true;
       }
       if (
@@ -202,8 +207,7 @@ export default {
         !this.$t("applyNow.step_1")["height"]["error"]
       ) {
         this.$t("applyNow.step_1")["height"]["error"] = true;
-        this.$t("applyNow.step_1")["height"]["feedback"] =
-          "Fill in a valid weight";
+
         errors = true;
       }
       if (
@@ -211,8 +215,7 @@ export default {
         !this.$t("applyNow.step_1")["weight"]["error"]
       ) {
         this.$t("applyNow.step_1")["weight"]["error"] = true;
-        this.$t("applyNow.step_1")["weight"]["feedback"] =
-          "Fill in a valid weight";
+
         errors = true;
       }
       return errors;
@@ -268,12 +271,13 @@ export default {
               interested: interested.data,
               _honey: this.honey,
             })
-            .then(() =>
+            .then(() => {
               this.$router.push({
                 name: "Thank_You",
                 params: { type: "apply" },
-              })
-            );
+              });
+              this.resetForm();
+            });
         }
       }
     },
@@ -396,9 +400,6 @@ export default {
     @include title-md-pd;
     &__title {
       font-size: $title-md;
-    }
-    &__progress {
-      padding: 0em 6em;
     }
     &__questions {
       padding: 1em 6em;

@@ -55,7 +55,7 @@ export default {
       this.$i18n.locale = lang;
     },
     toggleMenu: function () {
-      if (window.innerWidth < 768) {
+      if (window.innerWidth < 1024) {
         let languages = this.$refs.languages;
         let hamburger = this.$refs.hamburger;
         let nav = this.$refs.nav;
@@ -63,7 +63,6 @@ export default {
         let menuNav = this.$refs.menuNav;
         if (!this.showMenu) {
           languages.classList.add("languages-open");
-          document.body.style.overflowY = "hidden";
           hamburger.classList.add("open");
           nav.classList.add("open");
           menuNav.classList.add("open");
@@ -74,7 +73,6 @@ export default {
           nav.classList.remove("open");
           menuNav.classList.remove("open");
           navItems.forEach((item) => item.classList.remove("open"));
-          document.body.style.overflowY = "scroll";
         }
         this.showMenu = !this.showMenu;
       }
@@ -217,7 +215,7 @@ export default {
     }
     &__link {
       display: inline-block;
-      font-size: 1.5rem;
+      font-size: 1rem;
       text-transform: uppercase;
       padding: 2rem 0;
       font-weight: 300;
@@ -241,6 +239,15 @@ export default {
   }
 }
 @include media-md {
+  .nav {
+    .menu-nav {
+      &__link {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+@include media-lg {
   .menu-btn {
     visibility: hidden;
   }
@@ -257,11 +264,11 @@ export default {
       transform: translateY(0);
       height: 100%;
       background: gradient(to-right, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.85));
-      text-align: right;
+      text-align: center;
 
       &__item {
         display: inline;
-        padding-right: 1.5rem;
+        padding-right: 1rem;
       }
       &__item:first-child a {
         position: absolute;
