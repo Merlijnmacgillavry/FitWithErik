@@ -69,7 +69,7 @@ export default {
           "applyCustomPlan.form"
         );
         this.axios
-          .post("https://formsubmit.co/ajax/merlijnmac@gmail.com", {
+          .post("https://formsubmit.co/ajax/fitwitherik@gmail.com", {
             _subject: "Custom Plan",
             _template: "table",
             name: name.data,
