@@ -4,31 +4,6 @@ const customPlans = {
     select: "SELECT",
     types: [
         {
-            name: "Basic",
-            items: [
-                {
-                    name: 'Regulier plan',
-                    active: true
-                },
-                {
-                    name: 'Intake gesprek',
-                    active: false
-                },
-                {
-                    name: 'Toegang tot de Fit with Erik Coaching App',
-                    active: false
-                },
-                {
-                    name: '24/7 Support via berichten',
-                    active: false
-                },
-                {
-                    name: 'Wekelijkse check-ins',
-                    active: false
-                },
-            ],
-        },
-        {
             name: "STANDARD",
             items: [
                 {

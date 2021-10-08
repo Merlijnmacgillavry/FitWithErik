@@ -49,10 +49,16 @@ const routes = [
         name: "Apply_Now",
         component: () => import('./components/Apply_Now.vue')
     },
+
     {
         path: "/thank_you/:type",
         name: "Thank_You",
         component: () => import('./components/Thank_you.vue'),
+    },
+    {
+        path: "/apply_custom_plans/:plan?:type?",
+        name: "Apply_Custom_Plans",
+        component: () => import('./components/Apply_Custom_Plans.vue')
     },
     {
         path: "/*",

@@ -12,6 +12,9 @@
       <router-link to="/contact_me">
         <button class="btn">{{ $t("contact.button_1") }}</button></router-link
       >
+      <router-link to="/apply_custom_plans/">
+        <button class="btn">{{ $t("contact.button_3") }}</button></router-link
+      >
       <router-link to="/apply">
         <button class="btn">{{ $t("contact.button_2") }}</button>
       </router-link>
@@ -91,9 +94,6 @@ export default {
     }
     &__text {
       font-size: 1.4rem;
-    }
-    &__buttons {
-      flex-direction: row;
     }
   }
 }

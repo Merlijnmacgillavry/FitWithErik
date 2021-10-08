@@ -35,6 +35,7 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/_config";
 .footer {
+  pointer-events: none;
   transition: 0.5s opacity ease-in-out;
   width: 100vw;
   position: fixed;
@@ -55,6 +56,7 @@ export default {
 }
 .visible {
   opacity: 1;
+  pointer-events: all;
 }
 @include media-md {
   .footer {

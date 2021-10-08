@@ -15,8 +15,8 @@
       <div class="types">
         <div
           class="type"
-          v-for="(type, index) in $t('customPlans.types')"
-          :key="index"
+          v-for="(type, indexT) in $t('customPlans.types')"
+          :key="indexT"
         >
           <h2 class="type__name">{{ type.name }}</h2>
           <div
@@ -28,7 +28,16 @@
             <i class="fas fa-ban" v-else></i>
             {{ item.name }}
           </div>
-          <button class="btn">{{ $t("customPlans.select") }}</button>
+          <router-link
+            :to="{
+              name: 'Apply_Custom_Plans',
+              params: { plan: index, type: indexT },
+            }"
+          >
+            <button class="btn">
+              {{ $t("customPlans.select") }}
+            </button></router-link
+          >
         </div>
       </div>
     </div>
@@ -80,10 +89,14 @@ export default {
       gap: 1em;
       justify-content: space-evenly;
       flex-direction: column;
+      align-items: center;
       .type {
         flex-grow: 1;
+        flex-basis: 25%;
         border: 3px solid $primary-color;
         padding: 2rem 1rem;
+        width: 100%;
+        max-width: 430px;
         &:hover {
           cursor: pointer;
           border: 3px solid white;
@@ -121,16 +134,21 @@ export default {
     }
   }
 }
-@include media-lg {
+@include media-md {
   .custom-plans {
     @include title-md-pd;
     &__title {
       font-size: $title-md;
     }
+  }
+}
+@include media-lg {
+  .custom-plans {
     &__plan {
-      padding: 1rem 2rem;
+      padding: 2rem 2rem;
       .types {
         flex-direction: row;
+        justify-content: space-evenly;
       }
     }
   }

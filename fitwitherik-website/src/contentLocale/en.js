@@ -1,5 +1,6 @@
 import page404 from "./404/404-en"
 import about from "./about/about-en"
+import applyCustomPlan from "./apply_custom_plans/applyCustomPlans-en"
 import applyNow from "./apply_now/applyNow-en"
 import contact from "./contact/contact-en"
 import contactMe from "./contact_me/contact_me-en"
@@ -25,5 +26,6 @@ const en = {
     navbar: navbar,
     customPlans: customPlans,
     footer: footer,
+    applyCustomPlan: applyCustomPlan
 }
 export default en

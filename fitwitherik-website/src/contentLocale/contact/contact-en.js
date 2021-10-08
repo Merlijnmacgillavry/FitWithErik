@@ -4,6 +4,7 @@ const contact = {
     text_2: '. If you want to apply for online coaching or talk to me about online coaching choose ',
     text_3: '. You will be redirected to the proper page where you can fill in the information required.',
     button_1: 'CONTACT ME',
-    button_2: 'APPLY NOW',
+    button_2: 'APPLY FOR ONLINE COACHING',
+    button_3: 'APPLY FOR CUSTOM PLAN',
 }
 export default contact;

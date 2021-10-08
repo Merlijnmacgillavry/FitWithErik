@@ -1,5 +1,6 @@
 import page404 from "./404/404-nl";
 import about from "./about/about-nl";
+import applyCustomPlan from "./apply_custom_plans/applyCustomPlans-nl";
 import applyNow from "./apply_now/applyNow-nl";
 import contact from "./contact/contact-nl";
 import contactMe from "./contact_me/contact_me-nl";
@@ -24,6 +25,8 @@ const nl = {
     thankYou: thankYou,
     navbar: navbar,
     customPlans: customPlans,
-    footer: footer
+    footer: footer,
+    applyCustomPlan: applyCustomPlan
+
 }
 export default nl;

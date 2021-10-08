@@ -4,31 +4,6 @@ const customPlans = {
     select: "SELECT",
     types: [
         {
-            name: "Basic",
-            items: [
-                {
-                    name: 'Regular plan',
-                    active: true
-                },
-                {
-                    name: 'Intake call',
-                    active: false
-                },
-                {
-                    name: 'Access to the FITWITHERIK Coaching App',
-                    active: false
-                },
-                {
-                    name: '24/7 Support via chat',
-                    active: false
-                },
-                {
-                    name: 'Weekly check-ins',
-                    active: false
-                },
-            ],
-        },
-        {
             name: "STANDARD",
             items: [
                 {
