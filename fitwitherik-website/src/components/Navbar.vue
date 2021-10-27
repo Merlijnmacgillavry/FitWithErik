@@ -215,9 +215,9 @@ export default {
     }
     &__link {
       display: inline-block;
-      font-size: 1rem;
+      font-size: 2rem;
       text-transform: uppercase;
-      padding: 2rem 0;
+      padding: 1rem 0;
       font-weight: 300;
       @include transition-ease;
 
