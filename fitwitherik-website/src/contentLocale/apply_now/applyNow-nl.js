@@ -126,7 +126,7 @@ const applyNow = {
         },
         interested: {
             fieldName:
-                "Als je snelle vooruitgang naar jouw fitness doelen kan behalen, zou je geiïnteresseerd zijn?",
+                "Als je snelle vooruitgang naar jouw fitness doelen kan behalen, zou je geïnteresseerd zijn?",
             data: "",
             error: false,
             feedback: "Kies alstublieft een optie",
