@@ -60,7 +60,7 @@ const applyNow = {
             options: [
                 { data: "1 maand plan", active: false },
                 { data: "6 maanden plan", active: false },
-                { data: "Volledig jaar plan", active: false },
+                { data: "Jaarlijks plan", active: false },
             ],
         },
         current_routine: {
