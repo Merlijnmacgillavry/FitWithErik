@@ -1,5 +1,5 @@
 const applyCustomPlan = {
-    title: 'Meld je aan voor een persoonlijk plan',
+    title: 'Aanmeldformulier persoonlijke plannen',
     submit: "Aanmelden",
     form: {
         name: {
