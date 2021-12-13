@@ -35,7 +35,7 @@ const applyNow = {
             feedback: "Vul alstublieft je leeftijd in (tussen 16 en 99)",
         },
         height: {
-            fieldName: "What is lengte? (cm)",
+            fieldName: "Wat is je lengte? (cm)",
             data: "",
             placeholder: "Lengte...",
             error: false,
