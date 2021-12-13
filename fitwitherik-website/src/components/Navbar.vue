@@ -254,7 +254,7 @@ export default {
   .languages,
   .languages-open {
     left: auto;
-    top: 1.5rem;
+    top: 0.75rem;
     right: 1rem !important;
   }
   .nav {
@@ -273,7 +273,7 @@ export default {
       &__item:first-child a {
         position: absolute;
         left: 0;
-        padding: 2rem;
+        padding: 1rem 2rem;
       }
 
       &__link {
