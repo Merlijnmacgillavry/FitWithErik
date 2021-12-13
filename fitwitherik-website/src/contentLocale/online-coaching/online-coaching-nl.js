@@ -33,7 +33,7 @@ const onlineCoaching = {
         },
         {
             title: "1 op 1 check in calls",
-            text: "Elke 2 weken en online meeting waarin we het plan kunnen aanpassen en je verantwoordelijk houden!"
+            text: "Elke 2 weken een online meeting waarin we het plan kunnen aanpassen en je verantwoordelijk houden!"
         },
         {
             title: "Toegang tot fitness app",
