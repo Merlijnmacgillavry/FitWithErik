@@ -51,20 +51,20 @@ const onlineCoaching = {
     plans: [
         {
             index: 0,
-            name: '1 Maand',
+            name: '4 Weken',
             discount: 'Geen korting',
             selected: true,
         },
         {
             index: 1,
             name: '6 Maanden',
-            discount: '12.5% korting',
+            discount: '18% korting',
             selected: false,
         },
         {
             index: 2,
-            name: 'Volledig jaar',
-            discount: '25% korting',
+            name: '12 Maanden',
+            discount: '30% korting',
             selected: false,
         },
     ],

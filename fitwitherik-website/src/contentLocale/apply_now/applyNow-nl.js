@@ -58,9 +58,9 @@ const applyNow = {
             feedback: "Kies alstublieft een plan",
             types: ["button"],
             options: [
-                { data: "1 maand plan", active: false },
+                { data: "4 weken plan", active: false },
                 { data: "6 maanden plan", active: false },
-                { data: "Jaarlijks plan", active: false },
+                { data: "12 maanden plan", active: false },
             ],
         },
         current_routine: {

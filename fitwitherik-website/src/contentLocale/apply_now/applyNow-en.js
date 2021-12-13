@@ -58,9 +58,9 @@ const applyNow = {
             feedback: "Please choose a plan",
             types: ["button"],
             options: [
-                { data: "1 month plan", active: false },
+                { data: "4 week plan", active: false },
                 { data: "6 months plan", active: false },
-                { data: "Full year plan", active: false },
+                { data: "12 months plan", active: false },
             ],
         },
         current_routine: {
