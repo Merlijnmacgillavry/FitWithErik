@@ -5,6 +5,6 @@ const contact = {
     text_3: '. Je wordt doorgestuurd naar de juiste pagina waar je de benodigde informatie kunt invullen.',
     button_1: 'NEEM CONTACT OP',
     button_2: 'AANMELDEN VOOR ONLINE COACHING',
-    button_3: 'AANMELDEN VOOR PERSOONLIJKE PLAN',
+    button_3: 'AANMELDEN VOOR PERSOONLIJK PLAN',
 }
 export default contact;
