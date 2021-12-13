@@ -36,7 +36,7 @@ const onlineCoaching = {
             text: "Elke 2 weken en online meeting waarin we het plan kunnen aanpassen en je verantwoordelijk houden!"
         },
         {
-            title: "Toegang to fitness app",
+            title: "Toegang tot fitness app",
             text: "Krijg toegang tot mijn fitness app waar je jouw workouts en voeding kan bijhouden en met mij kan communiceren"
         },
         {
