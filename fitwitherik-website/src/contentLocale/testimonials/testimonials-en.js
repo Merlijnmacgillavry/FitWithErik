@@ -25,9 +25,9 @@ const testimonials = {
             favExercise:
                 "Although I liked them all, I think my favorite was the chest supported lat pulldown.",
             bfBefore: 20,
-            bfAfter: 13,
+            bfAfter: 10,
             bwBefore: 88.9,
-            bwAfter: 78.5,
+            bwAfter: 75.5,
             cBefore: 6,
             cAfter: 9,
         },

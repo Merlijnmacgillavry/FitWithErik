@@ -1,6 +1,6 @@
 const applyNow = {
-    title: 'Aanmeldformulier',
-    tagLine_1: "Deze vragen geven mij een zo goed mogelijk beeld van jou waarmee ik kan bepalen of je goed bij mijn coaching programma past!",
+    title: 'Aanmeldformulier online coaching',
+    tagLine_1: "Deze vragen geven mij een goed beeld van jou waarmee ik kan bepalen of jij geschikt bent voor mijn coaching programma!",
     tagLine_2: "De volgende vragen gaan over wat je weet, wat je wil bereiken in het komende jaar en wat je tegenhoudt.",
     next: 'VOLGENDE',
     back: "TERUG",
@@ -35,7 +35,7 @@ const applyNow = {
             feedback: "Vul alstublieft je leeftijd in (tussen 16 en 99)",
         },
         height: {
-            fieldName: "What is lengte? (cm)",
+            fieldName: "Wat is je lengte? (cm)",
             data: "",
             placeholder: "Lengte...",
             error: false,
@@ -58,9 +58,9 @@ const applyNow = {
             feedback: "Kies alstublieft een plan",
             types: ["button"],
             options: [
-                { data: "1 maand plan", active: false },
+                { data: "4 weken plan", active: false },
                 { data: "6 maanden plan", active: false },
-                { data: "Volledig jaar plan", active: false },
+                { data: "12 maanden plan", active: false },
             ],
         },
         current_routine: {
@@ -126,7 +126,7 @@ const applyNow = {
         },
         interested: {
             fieldName:
-                "Als je snelle vooruitgang naar jouw fitness doelen kan behalen, zou je geiïnteresseerd zijn?",
+                "Als je snelle vooruitgang naar jouw fitness doelen kan behalen, zou je geïnteresseerd zijn?",
             data: "",
             error: false,
             feedback: "Kies alstublieft een optie",

@@ -33,15 +33,15 @@ const onlineCoaching = {
         },
         {
             title: "1 op 1 check in calls",
-            text: "Elke 2 weken en online meeting waarin we het plan kunnen aanpassen en je verantwoordelijk houden!"
+            text: "Elke 2 weken een online meeting waarin we het plan kunnen aanpassen en je verantwoordelijk houden!"
         },
         {
-            title: "Toegang to fitness app",
+            title: "Toegang tot fitness app",
             text: "Krijg toegang tot mijn fitness app waar je jouw workouts en voeding kan bijhouden en met mij kan communiceren"
         },
         {
             title: "24/7 ondersteuning",
-            text: "24/7 ondersteuning via berichten waarmee je vragen beantwoord worden en je hulp kan krijgen wanneer nodig"
+            text: "24/7 ondersteuning via berichten waarmee je vragen beantwoord worden en je hulp kan krijgen wanneer jij dat nodig hebt!"
         },
         {
             title: "Geld terug garantie",
@@ -51,20 +51,20 @@ const onlineCoaching = {
     plans: [
         {
             index: 0,
-            name: '1 Maand',
+            name: '4 Weken',
             discount: 'Geen korting',
             selected: true,
         },
         {
             index: 1,
             name: '6 Maanden',
-            discount: '12.5% korting',
+            discount: '18% korting',
             selected: false,
         },
         {
             index: 2,
-            name: 'Volledig jaar',
-            discount: '25% korting',
+            name: '12 Maanden',
+            discount: '30% korting',
             selected: false,
         },
     ],

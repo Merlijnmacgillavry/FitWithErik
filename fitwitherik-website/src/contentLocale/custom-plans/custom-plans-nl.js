@@ -1,5 +1,5 @@
 const customPlans = {
-    title: "Custom Plans",
+    title: "Persoonlijke plannen",
     info: "",
     select: "SELECT",
     types: [

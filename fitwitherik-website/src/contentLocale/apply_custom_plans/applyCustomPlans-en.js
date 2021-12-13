@@ -1,5 +1,5 @@
 const applyCustomPlan = {
-    title: 'Apply for a Custom Plan',
+    title: 'Application form custom plans',
     submit: "SUBMIT",
     form: {
         name: {

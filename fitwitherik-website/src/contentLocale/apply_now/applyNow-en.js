@@ -1,6 +1,6 @@
 const applyNow = {
-    title: 'Apply now',
-    tagLine_1: "These questions give me a good overview to see if you're a good fit for my program!",
+    title: 'Application form online coaching',
+    tagLine_1: "These questions give me an overview of you to se if you're a good fit for my coaching program!",
     tagLine_2: "The next questions are about what you know, what you want to achieve this year and what is stopping you from achieving this.",
     next: 'NEXT',
     back: "BACK",
@@ -58,9 +58,9 @@ const applyNow = {
             feedback: "Please choose a plan",
             types: ["button"],
             options: [
-                { data: "1 month plan", active: false },
+                { data: "4 week plan", active: false },
                 { data: "6 months plan", active: false },
-                { data: "Full year plan", active: false },
+                { data: "12 months plan", active: false },
             ],
         },
         current_routine: {
