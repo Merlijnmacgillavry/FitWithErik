@@ -41,7 +41,7 @@ const onlineCoaching = {
         },
         {
             title: "24/7 ondersteuning",
-            text: "24/7 ondersteuning via berichten waarmee je vragen beantwoord worden en je hulp kan krijgen wanneer nodig"
+            text: "24/7 ondersteuning via berichten waarmee je vragen beantwoord worden en je hulp kan krijgen wanneer jij dat nodig hebt!"
         },
         {
             title: "Geld terug garantie",
